@@ -1,0 +1,51 @@
+
+/* Phase 7 — rental lifecycle / handover */
+.rental-status-banner{display:flex;justify-content:space-between;gap:1rem;align-items:center;padding:1rem 1.1rem;border-radius:.85rem;margin-bottom:1.25rem;border:1px solid #dfe5e5;background:#fff}
+.rental-status-banner>div:first-child strong,.rental-status-banner>div:first-child span{display:block}
+.rental-status-banner>div:first-child strong{font-size:1.05rem;color:var(--color-primary-900)}
+.rental-status-banner>div:first-child span{font-size:.78rem;color:var(--color-text-muted);margin-top:.2rem}
+.rental-status-banner.status-confirmed{border-left:4px solid #21854a}
+.rental-status-banner.status-ongoing{border-left:4px solid #2367a8}
+.rental-status-banner.status-completed{border-left:4px solid #667579}
+.rental-timeline{display:flex;gap:.75rem;align-items:center;font-size:.72rem;color:#a1abad}
+.rental-timeline span{padding:.35rem .55rem;border-radius:999px;background:#f1f4f4}
+.rental-timeline span.done{background:#edf8f1;color:#217b46;font-weight:700}
+.rental-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:1.25rem}
+.rental-action-card .card-header{align-items:flex-start}
+.rental-action-card .card-header h2{margin-bottom:.2rem}
+.rental-action-card .card-header small{color:var(--color-text-muted)}
+.rental-action-card textarea{resize:vertical}
+.rental-ack,.rental-check{display:flex;align-items:flex-start;gap:.65rem;padding:.8rem;border-radius:.65rem;margin-bottom:1rem;background:#f7f9f9;font-size:.82rem;line-height:1.5}
+.rental-ack{background:#fff8eb;border:1px solid rgba(214,139,28,.2)}
+.rental-ack input,.rental-check input{width:auto;margin-top:.25rem;flex:0 0 auto}
+.rental-closed{min-height:120px}
+.rental-side-card .card-header{margin-bottom:.3rem}
+.rental-dl{margin:0}
+.rental-dl>div{display:flex;justify-content:space-between;gap:1rem;padding:.7rem 0;border-bottom:1px solid #edf0f0}
+.rental-dl>div:last-child{border-bottom:0}
+.rental-dl dt{color:var(--color-text-muted);font-size:.78rem}
+.rental-dl dd{margin:0;text-align:right;font-weight:700;color:var(--color-primary-900);font-size:.8rem}
+.inspection-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.inspection-card{border:1px solid #e1e7e7;border-radius:.75rem;padding:.9rem}
+.inspection-title{display:flex;justify-content:space-between;gap:.5rem;padding-bottom:.7rem;border-bottom:1px solid #edf0f0}
+.inspection-title strong{color:var(--color-primary-900)}
+.inspection-title span{font-size:.7rem;color:var(--color-text-muted)}
+.inspection-metrics{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.7rem 0}
+.inspection-metrics span{background:#f7f9f9;border-radius:.5rem;padding:.55rem}
+.inspection-metrics small,.inspection-card p small{display:block;color:var(--color-text-muted);font-size:.68rem;text-transform:uppercase;letter-spacing:.04em}
+.inspection-metrics strong{font-size:.85rem;color:var(--color-primary-900)}
+.inspection-card p{font-size:.77rem;line-height:1.5}
+.inspection-card>small{font-size:.7rem;color:var(--color-text-muted)}
+.charge-total{display:flex;justify-content:space-between;padding:.75rem;background:#fff8eb;border-radius:.55rem;margin-bottom:.6rem}
+.charge-total span{color:#7a5310;font-size:.78rem}.charge-total strong{color:#7a5310}
+.charge-row{display:flex;justify-content:space-between;gap:.8rem;padding:.7rem 0;border-bottom:1px solid #edf0f0}
+.charge-row>div:first-child{min-width:0}.charge-row strong,.charge-row small{display:block}
+.charge-row strong{font-size:.8rem;color:var(--color-primary-900)}
+.charge-row small{font-size:.68rem;color:var(--color-text-muted);margin-top:.15rem}
+.charge-row>div:last-child{text-align:right}
+.charge-row select{font-size:.68rem;padding:.25rem;margin-top:.25rem}
+.add-charge-form{margin-top:1rem;padding-top:1rem;border-top:1px solid #edf0f0}
+.add-charge-form .form-group{margin-bottom:.7rem}
+.charge-status-form{display:inline}
+@media(max-width:900px){.rental-grid{grid-template-columns:1fr}.rental-timeline{display:none}}
+@media(max-width:650px){.inspection-grid{grid-template-columns:1fr}.rental-status-banner{align-items:flex-start}}

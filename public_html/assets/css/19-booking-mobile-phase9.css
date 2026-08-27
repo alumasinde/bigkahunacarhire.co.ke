@@ -1,0 +1,25 @@
+.location-shortcuts{display:flex;gap:.35rem;flex-wrap:wrap;margin-top:.45rem}.location-shortcuts button{border:1px solid #dce4e4;background:#f7f9f9;border-radius:999px;padding:.3rem .55rem;font-size:.66rem;cursor:pointer;color:var(--color-primary-900)}.location-shortcuts button:active{transform:scale(.98)}@media(max-width:520px){.location-shortcuts button{padding:.4rem .6rem}}
+
+/* Mobile booking action bar: keep long submit labels readable and prevent icon/text overlap. */
+@media (max-width: 560px) {
+  .booking-panel-actions {
+    display: grid;
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+    align-items: stretch;
+    gap: .6rem;
+  }
+
+  .booking-panel-actions .btn {
+    min-width: 0;
+    width: 100%;
+    padding: .72rem .7rem;
+    white-space: normal;
+    line-height: 1.2;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .booking-panel-actions .btn i {
+    flex: 0 0 auto;
+  }
+}

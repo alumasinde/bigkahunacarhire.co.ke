@@ -1,0 +1,98 @@
+/* ---------------------------------------------------------
+   Admin panel — cards, tables, badges, forms
+   --------------------------------------------------------- */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-5); margin-bottom: 30px; }
+.stat-card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 22px; }
+.stat-card i { font-size: 1.3rem; color: var(--color-accent-500); margin-bottom: var(--space-3); }
+.stat-card strong { display: block; font-size: 1.6rem; }
+.stat-card span { font-size: var(--text-xs); color: var(--color-text-faint); text-transform: uppercase; letter-spacing: 0.4px; }
+
+.card { background: var(--color-white); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 24px; margin-bottom: var(--space-6); }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-5); flex-wrap: wrap; gap: var(--space-3); }
+.card-header h2 { font-size: 1.05rem; }
+.card-muted-text { color: var(--color-text-faint); }
+
+table.data-table { width: 100%; border-collapse: collapse; }
+table.data-table th, table.data-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 0.88rem; }
+table.data-table th { text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.5px; color: var(--color-text-faint); }
+table.data-table tr:hover td { background: #FAFBFB; }
+.table-wrap { overflow-x: auto; }
+.table-thumb { color: var(--color-text-faint); }
+
+.badge { display: inline-block; padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+.badge-pending { background: var(--color-warning-bg); color: var(--color-warning); }
+.badge-confirmed { background: var(--color-success-bg); color: var(--color-success); }
+.badge-ongoing { background: var(--color-info-bg); color: var(--color-info); }
+.badge-completed { background: var(--color-neutral-bg); color: var(--color-neutral); }
+.badge-cancelled { background: var(--color-error-bg); color: var(--color-error); }
+.badge-available { background: var(--color-success-bg); color: var(--color-success); }
+.badge-booked { background: var(--color-warning-bg); color: var(--color-warning); }
+.badge-maintenance { background: var(--color-error-bg); color: var(--color-error); }
+.badge-retired { background: var(--color-neutral-bg); color: var(--color-neutral); }
+.badge-new { background: var(--color-info-bg); color: var(--color-info); }
+.badge-active { background: var(--color-success-bg); color: var(--color-success); }
+.badge-inactive { background: var(--color-neutral-bg); color: var(--color-neutral); }
+.badge-star { color: var(--color-accent-500); }
+
+/* Admin buttons — same classes as public site, tighter admin sizing */
+.admin-main .btn { padding: 9px 16px; border-radius: var(--radius-sm); font-size: var(--text-sm); border: none; }
+.admin-main .btn-outline { border: 1px solid var(--color-border); }
+.admin-main .btn-sm { padding: 6px 12px; font-size: 0.78rem; }
+
+/* Admin form controls (denser than the public site) */
+.admin-main .form-group { margin-bottom: var(--space-4); }
+.admin-main label { text-transform: uppercase; color: var(--color-text-muted); }
+.admin-main input, .admin-main select, .admin-main textarea {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+.admin-main input:focus, .admin-main select:focus, .admin-main textarea:focus {
+  outline: 2px solid var(--color-accent-500);
+  border-color: var(--color-accent-500);
+}
+
+@media (max-width: 700px) {
+  .form-row { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------------
+   AJAX toasts (admin-bookings.js)
+   --------------------------------------------------------------- */
+.admin-toast-container {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 340px;
+}
+.admin-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  box-shadow: var(--shadow-md, 0 8px 24px rgba(11,46,61,0.14));
+  border: 1px solid transparent;
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+.admin-toast.is-visible { opacity: 1; transform: translateX(0); }
+.admin-toast-success { background: var(--color-success-bg); color: var(--color-success); border-color: rgba(30,123,77,0.3); }
+.admin-toast-error { background: var(--color-error-bg); color: var(--color-error); border-color: rgba(192,57,43,0.3); }
+.admin-toast i { margin-top: 2px; }
+
+/* Live availability / conflict message, shared visual language with the
+   public booking page's own live-availability check. */
+.booking-availability-message { margin: 0 0 14px; padding: 0.7rem 0.85rem; border-radius: var(--radius-sm, 8px); font-size: 0.8rem; line-height: 1.45; border: 1px solid transparent; }
+.booking-availability-message.loading { background: #f2f6f6; color: #506468; border-color: #dce6e5; }
+.booking-availability-message.success { background: var(--color-success-bg); color: var(--color-success); border-color: rgba(30,123,77,0.3); }
+.booking-availability-message.warning { background: var(--color-warning-bg); color: var(--color-warning-text, var(--color-warning)); border-color: rgba(183,121,31,0.3); }
+.booking-availability-message.error { background: var(--color-error-bg); color: var(--color-error); border-color: rgba(192,57,43,0.3); }

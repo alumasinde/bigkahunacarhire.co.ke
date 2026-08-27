@@ -1,0 +1,19 @@
+/* ---------------------------------------------------------
+   Footer
+   --------------------------------------------------------- */
+.site-footer { background: var(--color-charcoal); color: rgba(255,255,255,0.8); padding: 60px 0 20px; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: var(--space-8); margin-bottom: var(--space-8); }
+@media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+.footer-grid h4 { color: var(--color-white); font-size: 0.95rem; margin-bottom: var(--space-5); text-transform: uppercase; letter-spacing: 1px; }
+.footer-grid ul li { margin-bottom: 10px; font-size: 0.9rem; }
+.footer-grid ul li a:hover { color: var(--color-accent-500); }
+.footer-brand p { margin: 14px 0; font-size: 0.9rem; }
+.footer-social a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  margin-right: var(--space-2);
+}
+.footer-social a:hover { background: var(--color-accent-500); color: var(--color-charcoal); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: var(--space-5); text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.5); }

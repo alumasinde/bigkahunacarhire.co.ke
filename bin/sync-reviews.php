@@ -1,0 +1,1 @@
+<?php declare(strict_types=1); require_once dirname(__DIR__).'/config/config.php'; if(php_sapi_name()!=='cli'){http_response_code(403);exit("CLI only\n");} echo json_encode(ReviewService::make()->syncAll(),JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES).PHP_EOL;
