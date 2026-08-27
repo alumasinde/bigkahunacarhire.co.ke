@@ -1,5 +1,6 @@
 -- Phase 4: WhatsApp inbox, conversation history and reminder support.
--- Additive migration only.
+-- Production-safe additive migration. Does not modify existing rows.
+
 CREATE TABLE IF NOT EXISTS whatsapp_conversations (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     phone VARCHAR(30) NOT NULL UNIQUE,
@@ -35,15 +36,15 @@ CREATE TABLE IF NOT EXISTS whatsapp_messages (
     CONSTRAINT fk_wa_msg_booking FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO role_permissions (role_id, permission_id)
-SELECT r.id, p.id FROM roles r JOIN permissions p ON p.name='messages.view' WHERE r.name='staff'
-  AND NOT EXISTS (SELECT 1 FROM role_permissions rp WHERE rp.role_id=r.id AND rp.permission_id=p.id);
+INSERT IGNORE INTO role_permissions (role_id, permission_id)
+SELECT r.id, p.id
+FROM roles r JOIN permissions p ON p.name='messages.view'
+WHERE r.name='staff';
 
-INSERT INTO settings (setting_group, setting_key, setting_value) VALUES
+INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('notifications','whatsapp_inbox_enabled','0'),
 ('notifications','whatsapp_reminders_enabled','0'),
 ('notifications','whatsapp_template_pickup_reminder','pickup_reminder'),
-('notifications','whatsapp_reminder_hours','24')
-ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value);
+('notifications','whatsapp_reminder_hours','24');
 
 SELECT 'Phase 4 WhatsApp operations migration complete.' AS status;

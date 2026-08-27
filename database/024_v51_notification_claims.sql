@@ -1,6 +1,5 @@
 -- V5.1: concurrency-safe notification claims.
--- Prevents two overlapping cron/web requests from sending the same
--- customer WhatsApp lifecycle event twice. Failed sends release the claim.
+-- Production-safe additive migration. Does not modify existing data.
 
 CREATE TABLE IF NOT EXISTS notification_claims (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

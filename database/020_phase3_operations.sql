@@ -1,5 +1,5 @@
 -- Phase 3: operations center, audit trail and notification delivery log.
--- Safe additive migration. Does not delete or alter existing transactional data.
+-- Production-safe additive migration. Does not delete or update existing transactional data.
 
 SET @has_whatsapp_opt_in := (SELECT COUNT(*) FROM information_schema.COLUMNS WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'bookings' AND COLUMN_NAME = 'whatsapp_opt_in');
 SET @sql_whatsapp_opt_in := IF(@has_whatsapp_opt_in = 0, 'ALTER TABLE bookings ADD COLUMN whatsapp_opt_in TINYINT(1) NOT NULL DEFAULT 0 AFTER phone', 'SELECT 1');
@@ -44,7 +44,8 @@ CREATE TABLE IF NOT EXISTS notification_logs (
     CONSTRAINT fk_notification_booking FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-INSERT INTO settings (setting_group, setting_key, setting_value)
+-- Add settings only when the exact setting does not already exist.
+INSERT IGNORE INTO settings (setting_group, setting_key, setting_value)
 VALUES
 ('notifications', 'whatsapp_provider', 'callmebot'),
 ('notifications', 'whatsapp_customer_enabled', '0'),
@@ -54,7 +55,6 @@ VALUES
 ('notifications', 'whatsapp_template_pickup_reminder', 'pickup_reminder'),
 ('notifications', 'whatsapp_template_admin_new_booking', 'admin_new_booking'),
 ('notifications', 'whatsapp_template_admin_payment_received', 'admin_payment_received'),
-('notifications', 'whatsapp_template_admin_status_changed', 'admin_status_changed')
-ON DUPLICATE KEY UPDATE setting_value = VALUES(setting_value);
+('notifications', 'whatsapp_template_admin_status_changed', 'admin_status_changed');
 
 SELECT 'Phase 3 operations migration complete.' AS status;

@@ -1,3 +1,5 @@
--- Big Kahuna V2 cleanup: remove a customer WhatsApp toggle that was never used by runtime code.
--- Keep WhatsApp provider settings under notifications because admin operational alerts still use them.
-DELETE FROM settings WHERE setting_group = 'customer' AND setting_key = 'whatsapp_booking_enabled';
+-- Big Kahuna V2 cleanup.
+-- Production-safe variant: intentionally does NOT delete or modify any existing data.
+-- The local migration removed an obsolete customer WhatsApp setting. Because production
+-- data must remain untouched, that cleanup is not applied here.
+SELECT 'V2 cleanup skipped: existing production data preserved.' AS status;
