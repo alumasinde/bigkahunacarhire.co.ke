@@ -133,7 +133,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
             <p class="bk-car-cat"><?= e($car['category_name'] ?? '') ?></p>
             <h3><?= e($car['name']) ?></h3>
             <div class="bk-car-specs">
-              <span><i class="fa-solid fa-users"></i><?= (int) $car['seats'] ?> seats</span>
+              <span><i class="fa-solid fa-users"></i><?= (int) $car['seats'] ?> <?= e($w('spec_seats_label')) ?></span>
               <span><i class="fa-solid fa-gears"></i><?= e(ucfirst($car['transmission'])) ?></span>
               <span><i class="fa-solid fa-gas-pump"></i><?= e(ucfirst($car['fuel_type'])) ?></span>
             </div>
@@ -198,10 +198,10 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
     </div>
     <div class="bk-location-grid">
       <?php foreach ($seoLocations as $location): ?>
-        <a href="<?= base_url($location['page_key']) ?>" class="bk-location-card"><span class="bk-location-icon"><i class="fa-solid fa-location-dot"></i></span><span><strong><?= e($location['name']) ?> Car Hire</strong><small><?= e($location['intro']) ?></small></span><i class="fa-solid fa-arrow-right"></i></a>
+        <a href="<?= base_url($location['page_key']) ?>" class="bk-location-card"><span class="bk-location-icon"><i class="fa-solid fa-location-dot"></i></span><span><strong><?= e($location['name']) ?> <?= e($w('location_car_hire_suffix')) ?></strong><small><?= e($location['intro']) ?></small></span><i class="fa-solid fa-arrow-right"></i></a>
       <?php endforeach; ?>
       <?php foreach ($seoAirports as $airport): ?>
-        <a href="<?= base_url($airport['page_key']) ?>" class="bk-location-card"><span class="bk-location-icon"><i class="fa-solid fa-plane-arrival"></i></span><span><strong><?= e($airport['name']) ?> Car Hire</strong><small><?= e($airport['intro']) ?></small></span><i class="fa-solid fa-arrow-right"></i></a>
+        <a href="<?= base_url($airport['page_key']) ?>" class="bk-location-card"><span class="bk-location-icon"><i class="fa-solid fa-plane-arrival"></i></span><span><strong><?= e($airport['name']) ?> <?= e($w('location_car_hire_suffix')) ?></strong><small><?= e($airport['intro']) ?></small></span><i class="fa-solid fa-arrow-right"></i></a>
       <?php endforeach; ?>
     </div>
   </div>
@@ -247,9 +247,9 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
 <section class="bk-section bk-reviews-section"><div class="container">
 <div class="bk-section-head center"><span class="section-eyebrow"><?= e($w('reviews_eyebrow')) ?></span><h2><?= e($w('reviews_title')) ?></h2><p><?= e($w('reviews_text')) ?></p></div>
 <?php $overall=$reviewsData['summary']['overall']??['rating'=>0,'count'=>0]; ?>
-<div class="bk-review-summary"><div class="bk-review-score"><strong><?= $overall['rating']>0?e(number_format((float)$overall['rating'],1)):'—' ?></strong><span>out of 5</span></div><div class="bk-review-summary-copy"><div class="bk-review-stars"><?php for($i=1;$i<=5;$i++): ?><i class="fa-solid fa-star <?= $i<=round((float)$overall['rating'])?'is-on':'' ?>"></i><?php endfor; ?></div><strong><?= (int)$overall['count'] ?> published review<?= (int)$overall['count']===1?'':'s' ?></strong><span>Across connected review sources</span></div><div class="bk-review-source-pills"><?php foreach(['google'=>'Google','tripadvisor'=>'Tripadvisor'] as $k=>$label):if(!empty($reviewsData['summary'][$k])):?><span><strong><?= e($label) ?></strong> <?= number_format((float)$reviewsData['summary'][$k]['rating'],1) ?> ★ · <?= (int)$reviewsData['summary'][$k]['count'] ?></span><?php endif;endforeach; ?></div></div>
+<div class="bk-review-summary"><div class="bk-review-score"><strong><?= $overall['rating']>0?e(number_format((float)$overall['rating'],1)):'—' ?></strong><span><?= e($w('reviews_out_of_label')) ?></span></div><div class="bk-review-summary-copy"><div class="bk-review-stars"><?php for($i=1;$i<=5;$i++): ?><i class="fa-solid fa-star <?= $i<=round((float)$overall['rating'])?'is-on':'' ?>"></i><?php endfor; ?></div><strong><?= (int)$overall['count'] ?> <?= e($w('reviews_published_label')) ?><?= (int)$overall['count']===1?'':'s' ?></strong><span><?= e($w('reviews_across_sources_label')) ?></span></div><div class="bk-review-source-pills"><?php foreach(['google'=>'Google','tripadvisor'=>'Tripadvisor'] as $k=>$label):if(!empty($reviewsData['summary'][$k])):?><span><strong><?= e($label) ?></strong> <?= number_format((float)$reviewsData['summary'][$k]['rating'],1) ?> ★ · <?= (int)$reviewsData['summary'][$k]['count'] ?></span><?php endif;endforeach; ?></div></div>
 <?php if(!empty($reviewsData['reviews'])):?><div class="bk-testimonial-grid bk-external-review-grid"><?php foreach($reviewsData['reviews'] as $r): ?><article class="bk-testimonial-card bk-external-review-card"><div class="bk-testimonial-stars"><?php for($i=0;$i<(int)$r['rating'];$i++):?><i class="fa-solid fa-star"></i><?php endfor;?></div><?php if($r['title']!==''):?><h3><?=e($r['title'])?></h3><?php endif;?><p class="bk-testimonial-quote">&ldquo;<?=e($r['comment'])?>&rdquo;</p><div class="bk-external-review-meta"><strong><?=e($r['reviewer_name'])?></strong><span><?=e(ucfirst($r['source']))?> · <?=e(date('d M Y',strtotime($r['review_date'])))?></span></div></article><?php endforeach;?></div><?php endif; ?>
-<div class="bk-review-actions"><?php if(!empty($reviewsData['links']['google'])):?><a class="btn btn-outline" href="<?=e($reviewsData['links']['google'])?>" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i> Review us on Google</a><?php endif;?><?php if(!empty($reviewsData['links']['tripadvisor'])):?><a class="btn btn-outline" href="<?=e($reviewsData['links']['tripadvisor'])?>" target="_blank" rel="noopener"><i class="fa-solid fa-plane"></i> Review us on Tripadvisor</a><?php endif;?><a class="btn btn-primary" href="<?=base_url('reviews')?>">Read all reviews <i class="fa-solid fa-arrow-right"></i></a></div>
+<div class="bk-review-actions"><?php if(!empty($reviewsData['links']['google'])):?><a class="btn btn-outline" href="<?=e($reviewsData['links']['google'])?>" target="_blank" rel="noopener"><i class="fa-brands fa-google"></i> <?= e($w('reviews_google_button')) ?></a><?php endif;?><?php if(!empty($reviewsData['links']['tripadvisor'])):?><a class="btn btn-outline" href="<?=e($reviewsData['links']['tripadvisor'])?>" target="_blank" rel="noopener"><i class="fa-solid fa-plane"></i> <?= e($w('reviews_tripadvisor_button')) ?></a><?php endif;?><a class="btn btn-primary" href="<?=base_url('reviews')?>"><?= e($w('reviews_read_all_button')) ?> <i class="fa-solid fa-arrow-right"></i></a></div>
 </div></section>
 <?php endif; ?>
 
@@ -257,7 +257,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
   <div class="container">
     <h2><?= e($w('cta_title')) ?></h2>
     <p><?= e($w('cta_text')) ?></p>
-    <a href="<?= base_url('book') ?>" class="btn btn-dark">Book Your Car <i class="fa-solid fa-arrow-right"></i></a>
+    <a href="<?= base_url('book') ?>" class="btn btn-dark"><?= e($w('cta_button_label')) ?> <i class="fa-solid fa-arrow-right"></i></a>
   </div>
 </section>
 
