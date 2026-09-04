@@ -163,7 +163,7 @@ final class HomeController
             $pageKey = (string)($page['page_key'] ?? '');
             if ($pageKey === '') continue;
 
-            $priority = in_array($pageKey, ['locations/nairobi','locations/mombasa','airports/jkia','airports/mombasa'], true)
+            $priority = ($page['page_type'] ?? '') === 'location' || ($page['page_type'] ?? '') === 'airport'
                 ? '0.9'
                 : '0.7';
 
