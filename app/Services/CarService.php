@@ -72,17 +72,45 @@ final class CarService
         return $stmt->execute([':id' => $id]);
     }
 
+    /**
+     * Cars selected for homepage promotion.
+     *
+     * "Featured" is editorial and must not disappear merely because a car is
+     * currently booked or in maintenance. Only retired cars are hidden from
+     * the public homepage. If no cars have been explicitly featured yet, we
+     * fall back to the newest public fleet entries so the homepage grid never
+     * renders as an empty section while the fleet contains cars.
+     */
     public function featured(int $limit = 6): array
     {
+        $limit = max(1, min(12, $limit));
+
         $stmt = $this->db->prepare(
             "SELECT c.*, cc.name AS category_name FROM cars c
              LEFT JOIN car_categories cc ON cc.id = c.category_id
-             WHERE c.featured = 1 AND c.status = 'available'
-             ORDER BY c.created_at DESC LIMIT :limit"
+             WHERE c.featured = 1 AND c.status != 'retired'
+             ORDER BY c.created_at DESC
+             LIMIT :limit"
         );
         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll();
+        $cars = $stmt->fetchAll();
+
+        if (!empty($cars)) {
+            return $cars;
+        }
+
+        $fallback = $this->db->prepare(
+            "SELECT c.*, cc.name AS category_name FROM cars c
+             LEFT JOIN car_categories cc ON cc.id = c.category_id
+             WHERE c.status != 'retired'
+             ORDER BY c.created_at DESC
+             LIMIT :limit"
+        );
+        $fallback->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $fallback->execute();
+
+        return $fallback->fetchAll();
     }
 
     /**
