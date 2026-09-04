@@ -1,0 +1,9 @@
+{
+  "name": "Big Kahuna Car Hire",
+  "short_name": "Big Kahuna",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f2e8",
+  "theme_color": "#102b32",
+  "description": "Car hire in Kenya with self-drive and chauffeur options."
+}

@@ -1,0 +1,10 @@
+{
+  "css": {
+    "file": "/assets/css/app.min.css",
+    "version": "a95dae37a5"
+  },
+  "phase": "4",
+  "ui_phase": 3,
+  "ui_css": "ui-final.css",
+  "version": "ui3-widthfix-20260814"
+}

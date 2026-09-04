@@ -348,9 +348,3 @@ VALUES
 (4, 'Toyota Hiace', 'toyota-hiace', 'Toyota', 'Hiace', 2018, 'manual', 'diesel', 14, 4, 9000.00, 'KDD 404D', 'Nairobi', 'Spacious minibus for group travel, tours and airport transfers.', '/assets/images/cars/hiace.jpg', 'available', 0, 'Toyota Hiace Van Hire Kenya | Big Kahuna Car Hire', 'Hire a 14-seater Toyota Hiace for group travel and tours in Kenya.'),
 (1, 'Nissan Note', 'nissan-note', 'Nissan', 'Note', 2020, 'automatic', 'petrol', 4, 4, 3800.00, 'KDE 505E', 'Mombasa', 'Reliable hatchback with great fuel economy for daily use.', '/assets/images/cars/note.jpg', 'available', 0, 'Nissan Note Hire Mombasa | Big Kahuna Car Hire', 'Affordable Nissan Note self-drive hire available in Mombasa.'),
 (2, 'Subaru Forester', 'subaru-forester', 'Subaru', 'Forester', 2019, 'automatic', 'petrol', 5, 5, 8000.00, 'KDF 606F', 'Nairobi', 'All-wheel-drive SUV, confident on tarmac and rough roads alike.', '/assets/images/cars/forester.jpg', 'available', 1, 'Subaru Forester Hire Nairobi | Big Kahuna Car Hire', 'Hire a Subaru Forester SUV for city and upcountry travel in Kenya.');
-
--- Sample testimonials
-INSERT INTO testimonials (client_name, client_role, rating, message) VALUES
-('Wanjiru K.', 'Nairobi', 5, 'Booked a Prado for a Maasai Mara trip — clean car, on-time pickup, and the driver option made it stress-free.'),
-('James O.', 'Mombasa', 5, 'Affordable rates and the online booking was quick. Will hire again for my next upcountry trip.'),
-('Amina S.', 'Kisumu', 4, 'Good experience overall. Support team responded fast on WhatsApp when I needed to extend my booking.');

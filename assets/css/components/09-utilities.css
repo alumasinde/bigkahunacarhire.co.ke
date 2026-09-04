@@ -1,0 +1,10 @@
+/* ---------------------------------------------------------
+   Utility classes
+   --------------------------------------------------------- */
+.text-center { text-align: center; }
+.mt-1 { margin-top: var(--space-2); }
+.mt-2 { margin-top: var(--space-5); }
+.mb-1 { margin-bottom: var(--space-2); }
+.mb-2 { margin-bottom: var(--space-5); }
+.no-top-padding { padding-top: 0; }
+.flip-180 { transform: rotate(180deg); }

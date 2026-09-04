@@ -1,0 +1,641 @@
+# Webalizer V2.23-08 Incremental Data - 08/30/2026 23:31:55
+2026 8 30 23 31 55
+436 356 68 67 23 34 4690995 137 50 0
+25 2 93 28 30
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+213 176 2280651 28 53 17
+161 136 1687761 30 71 22
+62 44 722583 25 13 11
+0 0 0 0 0 0
+68 62 1253856 25
+0 0 0 0
+1 1 133 0
+4 1 1920 2
+43 36 109871 20
+8 5 16787 4
+2 2 279650 0
+13 7 380865 2
+142 125 954451 19
+5 3 354873 2
+32 30 96646 16
+42 37 1121234 21
+6 6 11821 3
+4 2 3052 0
+12 6 35828 5
+4 3 5795 2
+0 0 0 0
+10 6 14120 4
+15 8 11915 2
+8 5 15628 6
+1 1 133 0
+5 3 4343 1
+5 3 8547 1
+6 4 9527 2
+0
+0
+0
+356
+0
+0
+0
+0
+0
+0
+0
+57
+1
+0
+4
+0
+0
+0
+0
+0
+0
+18
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+# -urls- 
+/admin/cars
+0 1 0 2016 0 0
+/assets/css/components/11-admin-components.css
+0 1 0 936 0 0
+/admin/categories
+0 1 0 1943 0 0
+/admin/settings
+0 1 0 9960 0 0
+/assets/css/16-rental-operations-phase7.css
+0 1 0 1034 0 0
+/sitemap.xml
+0 11 0 5877 0 0
+/assets/images/cars/car_6a7dca496a6c50.65309422.jpg
+0 2 0 323906 0 0
+/admin/dashboard
+0 2 0 4590 0 0
+/faq
+0 1 0 3663 1 0
+/admin/login
+0 1 0 921 0 0
+/.well-known/security.txt
+0 2 0 750 0 0
+/assets/css/booking-v2.css
+0 14 0 40216 0 0
+/requirements
+0 1 0 3796 0 0
+/assets/css/23-phase5-customer-lifecycle.css
+0 13 0 6793 0 0
+/services/4x4-hire
+0 2 0 7402 1 0
+/site.webmanifest
+0 6 0 1250 0 0
+/services/airport-car-hire
+0 1 0 3725 0 0
+/about
+0 4 0 14078 4 1
+/assets/css/19-booking-mobile-phase9.css
+0 16 0 8951 0 0
+/assets/css/ui-final.css
+0 14 0 168912 0 0
+/terms
+0 3 0 12216 0 1
+/services/chauffeur
+0 2 0 7464 2 0
+/admin/chauffeur-rates
+0 1 0 1622 0 0
+/assets/css/18-customer-phase9.css
+0 14 0 21713 0 0
+/fleet
+0 14 0 46745 0 0
+/airports/mombasa
+0 2 0 7604 0 0
+/assets/css/17-fleet-phase8.css
+0 1 0 1233 0 0
+/fleet/nissan-x-trail
+0 2 0 7178 1 0
+/assets/css/components/10-admin-layout.css
+0 1 0 952 0 0
+/assets/css/components/00-tokens.css
+0 1 0 986 0 0
+/assets/images/favicon.png
+0 11 0 91069 0 0
+/assets/css/components/03-forms.css
+0 1 0 526 0 0
+/assets/css/components/02-buttons.css
+0 1 0 522 0 0
+/assets/images/og-default.jpg
+0 2 0 105618 0 0
+/admin/bookings
+0 1 0 2402 0 0
+/assets/images/cars/car_6a7dc731b38729.06466941.jpg
+0 2 0 462124 0 0
+/services/self-drive
+0 1 0 3716 1 0
+/admin/bookings/calendar
+0 1 0 2200 0 0
+/fleet/white-toyota-coaster
+0 1 0 3656 0 0
+/assets/css/13-seo-phase4.css
+0 14 0 4221 0 0
+/assets/images/cars/prado.jpg
+0 1 0 57867 0 0
+/fleet/toyota-land-cruiser-v8-lc200
+0 2 0 7320 1 0
+/contact
+0 2 0 6183 0 0
+/assets/images/cars/car-placeholder.svg
+0 1 0 361 0 0
+/services/suv-hire
+0 1 0 3633 1 0
+/assets/css/components/06-sections.css
+0 1 0 752 0 0
+/privacy
+0 2 0 9270 0 0
+/airports/jkia
+0 3 0 11397 1 0
+/assets/css/14-booking-phase5.css
+0 14 0 29217 0 0
+/assets/css/20-seo-growth-phase10.css
+0 14 0 8799 0 0
+/fleet/toyota-harrier
+0 1 0 3585 0 0
+/assets/images/cars/car_6a7dcbcc225145.86881118.jpg
+0 5 0 1393768 0 0
+/
+0 35 0 184072 29 7
+/book
+0 8 0 73441 1 1
+/assets/js/main.js
+0 17 0 10201 0 0
+/assets/images/cars/car_6a7dc5b65bd9f6.71559213.jpg
+0 4 0 956126 0 0
+/assets/css/15-operations-phase6.css
+0 1 0 1456 0 0
+/admin/payments
+0 1 0 2602 0 0
+/robots.txt
+0 37 0 11281 0 0
+/fleet/toyota-land-cruiser-prado
+0 1 0 3494 0 0
+/services/monthly-car-hire
+0 1 0 3730 1 0
+/locations/nairobi
+0 2 0 7882 0 0
+/assets/images/cars/forester.jpg
+0 1 0 52277 0 0
+/assets/css/app.min.css
+0 14 0 55257 0 0
+/assets/css/12-seo-local.css
+0 14 0 12915 0 0
+/assets/images/cars/car_6a7dc9534d8b20.11147918.jpg
+0 4 0 296108 0 0
+/locations/mombasa
+0 2 0 7816 2 0
+# End Of Table - urls
+# -sites- (monthly)
+216.73.216.194
+0 2 2 570 0 0
+-
+104.210.140.139
+0 1 0 501 0 0
+-
+74.7.228.60
+0 3 3 399 0 0
+-
+92.97.69.9
+0 1 0 501 1 1788060366
+/services/chauffeur
+181.46.39.12
+0 1 0 501 1 1787943614
+-
+51.158.248.241
+0 93 80 278096 2 1787906166
+/
+66.249.73.204
+0 4 2 128717 0 0
+-
+104.210.140.142
+0 2 2 266 0 0
+-
+74.7.230.23
+0 1 1 133 0 0
+-
+74.7.175.154
+0 4 2 1268 0 0
+-
+66.249.73.205
+0 2 2 279650 0 0
+-
+162.120.187.112
+0 1 1 3589 1 1788090702
+/fleet/nissan-x-trail
+170.83.118.253
+0 1 1 3701 1 1787943617
+/services/4x4-hire
+216.73.217.93
+0 40 38 575638 1 1788002182
+/book
+37.114.149.20
+0 1 0 501 1 1787996669
+/locations/mombasa
+196.96.235.28
+0 5 4 22781 1 1787926002
+/book
+32.197.93.224
+0 1 1 5781 1 1787987754
+/
+66.249.73.195
+0 3 0 2569 0 0
+-
+216.73.217.128
+0 8 8 562126 1 1788001373
+/fleet/nissan-x-trail
+216.73.216.103
+0 3 3 22007 1 1788002116
+/book
+104.210.140.140
+0 2 2 266 0 0
+-
+216.73.216.50
+0 2 2 7455 1 1788005036
+/services/airport-car-hire
+34.230.146.223
+0 1 0 833 1 1787987753
+/
+100.31.0.165
+0 2 1 6556 1 1788031316
+/
+41.90.173.16
+0 104 95 1628120 6 1788046499
+/services/chauffeur
+181.127.88.44
+0 1 0 501 1 1788060391
+/services/chauffeur
+195.178.110.15
+0 1 0 3139 1 1788124481
+-
+194.163.168.234
+0 1 1 5776 1 1787892137
+/
+159.223.193.83
+0 4 0 3246 1 1787927345
+/
+2.4.202.156
+0 1 0 501 1 1787945312
+-
+66.249.74.103
+0 3 3 292698 0 0
+-
+216.73.216.231
+0 1 1 3663 1 1788004964
+/faq
+44.204.87.204
+0 2 1 6556 1 1787939745
+/
+216.73.216.54
+0 1 1 3660 1 1788001460
+/fleet/toyota-land-cruiser-v8-lc200
+164.92.220.201
+0 1 1 5225 1 1787956674
+/
+66.249.73.194
+0 1 0 844 0 0
+-
+74.7.241.29
+0 3 0 1503 0 0
+-
+66.249.74.6
+0 1 0 883 0 0
+-
+24.199.90.250
+0 4 2 15866 1 1788003376
+/
+216.73.216.37
+0 10 10 2850 0 0
+-
+102.219.84.29
+0 1 0 0 1 1787931603
+/
+104.210.140.137
+0 1 0 501 0 0
+-
+62.217.129.47
+0 1 1 3799 1 1787945316
+/airports/jkia
+66.249.74.105
+0 1 0 785 0 0
+-
+5.41.9.211
+0 1 0 501 1 1787996678
+/locations/mombasa
+66.249.74.102
+0 11 11 84056 0 0
+-
+216.73.216.180
+0 2 2 570 0 0
+-
+34.204.184.214
+0 2 0 1612 1 1788063793
+/
+52.167.144.66
+0 2 1 918 0 0
+-
+66.249.93.172
+0 1 0 3138 0 0
+-
+104.210.140.141
+0 2 1 634 0 0
+-
+104.210.140.138
+0 1 1 133 0 0
+-
+34.122.147.229
+0 13 12 31059 2 1788078636
+/
+66.249.73.203
+0 6 1 243427 2 1787982879
+/about
+91.98.178.16
+0 2 1 5726 1 1788024203
+/
+104.210.140.130
+0 1 1 133 0 0
+-
+74.7.228.32
+0 2 1 634 0 0
+-
+66.249.74.104
+0 10 9 299109 3 1788064805
+/about
+66.249.74.5
+0 1 0 843 0 0
+-
+52.90.22.107
+0 2 1 6556 1 1788114145
+/
+104.197.69.115
+0 2 0 1550 1 1787992272
+/
+66.249.73.193
+0 2 0 1681 1 1788064789
+/about
+104.210.140.133
+0 2 1 634 0 0
+-
+34.123.170.104
+0 12 12 30284 1 1788078637
+/
+34.237.50.25
+0 1 1 5781 1 1788063794
+/
+74.7.227.182
+0 1 0 501 0 0
+-
+74.7.227.17
+0 29 29 86493 1 1787977170
+/locations/nairobi
+59.147.113.102
+0 1 0 501 1 1787916647
+-
+# End Of Table - sites (monthly)
+# -sites- (daily)
+104.210.140.139
+0 1 0 501 0 0
+-
+74.7.228.60
+0 1 1 133 0 0
+-
+92.97.69.9
+0 1 0 501 1 1788060366
+/services/chauffeur
+104.210.140.142
+0 1 1 133 0 0
+-
+74.7.175.154
+0 2 1 634 0 0
+-
+162.120.187.112
+0 1 1 3589 1 1788090702
+/fleet/nissan-x-trail
+66.249.73.195
+0 3 0 2569 0 0
+-
+181.127.88.44
+0 1 0 501 1 1788060391
+/services/chauffeur
+195.178.110.15
+0 1 0 3139 1 1788124481
+-
+66.249.74.103
+0 3 3 292698 0 0
+-
+66.249.73.194
+0 1 0 844 0 0
+-
+74.7.241.29
+0 1 0 501 0 0
+-
+216.73.216.37
+0 10 10 2850 0 0
+-
+66.249.74.105
+0 1 0 785 0 0
+-
+66.249.74.102
+0 8 8 79361 0 0
+-
+34.204.184.214
+0 2 0 1612 1 1788063793
+/
+66.249.93.172
+0 1 0 3138 0 0
+-
+34.122.147.229
+0 1 0 775 1 1788078636
+/
+104.210.140.130
+0 1 1 133 0 0
+-
+66.249.74.104
+0 3 3 283447 1 1788064805
+/about
+52.90.22.107
+0 2 1 6556 1 1788114145
+/
+66.249.73.193
+0 2 0 1681 1 1788064789
+/about
+34.123.170.104
+0 12 12 30284 1 1788078637
+/
+34.237.50.25
+0 1 1 5781 1 1788063794
+/
+74.7.227.17
+0 1 1 437 0 0
+-
+# End Of Table - sites (daily)
+# -referrers- 
+https://bigkahunacarhire.co.ke/admin/categories
+0 1
+https://www.bigkahunacarhire.co.ke/services/4x4-hire
+0 1
+https://www.bigkahunacarhire.co.ke/airports/jkia
+0 1
+https://bigkahunacarhire.co.ke/admin/login
+0 9
+http://bigkahunacarhire.co.ke/robots.txt
+0 1
+https://bigkahunacarhire.co.ke/
+0 181
+http://bigkahunacarhire.co.ke/
+0 2
+https://www.bigkahunacarhire.co.ke
+0 9
+https://bigkahunacarhire.co.ke/fleet
+0 8
+https://bigkahunacarhire.co.ke/about
+0 2
+https://www.google.com/
+0 2
+- (Direct Request)
+0 194
+https://bigkahunacarhire.co.ke/admin/bookings/calendar
+0 1
+https://bigkahunacarhire.co.ke/fleet/toyota-land-cruiser-v8-lc200
+0 1
+https://bigkahunacarhire.co.ke/admin/settings
+0 2
+https://bigkahunacarhire.co.ke/admin/payments
+0 1
+http://www.bigkahunacarhire.co.ke/
+0 1
+https://www.bigkahunacarhire.co.ke/
+0 1
+https://bigkahunacarhire.co.ke/admin/bookings
+0 1
+https://bigkahunacarhire.co.ke/admin/cars
+0 1
+https://bigkahunacarhire.co.ke/admin/chauffeur-rates
+0 1
+https://www.bigkahunacarhire.co.ke/robots.txt
+0 3
+https://bigkahunacarhire.co.ke/admin/dashboard
+0 12
+# End Of Table - referrers
+# -agents- 
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36
+0 2
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Mobile Safari/537.36
+0 21
+Mozilla/5.0 (Android 6.0.1; Mobile; rv:48.0) Gecko/48.0 Firefox/48.0
+0 1
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.64 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.6422.60 Safari/537.36 Edge/12.2
+0 27
+Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20120427 Firefox/15.0a1
+0 1
+Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)
+0 24
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36; compat
+0 22
+Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36
+0 20
+Googlebot-Image/1.0
+0 12
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm) Chrome/116.0.19
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36
+0 68
+Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.7922.173 Mobile
+0 9
+Opera/7.51 (Windows NT 5.1; U) [en]
+0 1
+Mozilla/5.0 (compatible; ForestEngine/1.0; +https://forestengine.net/)
+0 1
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; ClaudeBot/1.0; +claudebot@anthropic.com)
+0 69
+python-requests/2.34.2
+0 8
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3
+0 83
+Mozilla/5.0 (iPhone; CPU iPhone OS 15_2_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari Line/1
+0 1
+Mozilla/5.0 (X11; Linux x86_64; rv:142.0) Gecko/20100101 Firefox/142.0
+0 6
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36
+0 1
+Chrome Privacy Preserving Prefetch Proxy
+0 1
+python-httpx/0.28.1
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+0 1
+Mozilla/5.0 (Windows NT 10.0; WOW64; rv:48.0) Gecko/20100101 Firefox/48.0
+0 1
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
+0 2
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.81 Safari/537.36
+0 1
+Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.4; +https://openai.com/gptbot)
+0 33
+Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36
+0 2
+Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+0 4
+Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/134.0.0.0 Safari/537.36 Edg/1
+0 3
+# End Of Table - agents
+# -search strings- 
+# End Of Table - search strings
+# -usernames- 
+# End Of Table - usernames

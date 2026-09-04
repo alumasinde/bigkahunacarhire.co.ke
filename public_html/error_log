@@ -1,0 +1,14 @@
+[31-Aug-2026 12:16:42 Africa/Nairobi] [DB CONNECTION ERROR] SQLSTATE[28000] [1045] Access denied for user 'albatech_albaness'@'localhost' (using password: YES)
+[31-Aug-2026 12:17:04 Africa/Nairobi] [DB CONNECTION ERROR] SQLSTATE[28000] [1045] Access denied for user 'albatech_albaness'@'localhost' (using password: YES)
+[31-Aug-2026 12:18:33 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/albatech/public_html/apps/bigkahunacarhire/config/database.php:23
+Stack trace:
+#0 /home/albatech/public_html/apps/bigkahunacarhire/config/config.php(142): Database::connection()
+#1 /home/albatech/public_html/apps/bigkahunacarhire/public_html/index.php(14): require_once('/home/albatech/...')
+#2 {main}
+  thrown in /home/albatech/public_html/apps/bigkahunacarhire/config/database.php on line 23
+[31-Aug-2026 12:19:41 Africa/Nairobi] PHP Fatal error:  Uncaught Error: Class "PDO" not found in /home/albatech/public_html/apps/bigkahunacarhire/config/database.php:23
+Stack trace:
+#0 /home/albatech/public_html/apps/bigkahunacarhire/config/config.php(142): Database::connection()
+#1 /home/albatech/public_html/apps/bigkahunacarhire/public_html/index.php(14): require_once('/home/albatech/...')
+#2 {main}
+  thrown in /home/albatech/public_html/apps/bigkahunacarhire/config/database.php on line 23
