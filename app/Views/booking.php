@@ -136,7 +136,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
         <aside class="booking-v2-summary" aria-live="polite">
           <div class="booking-summary-card">
             <div class="booking-v2-summary-head"><span>YOUR TRIP</span><i class="fa-solid fa-car"></i></div>
-            <div id="summary-empty" class="summary-empty"><p>Choose a car to see your estimate.</p></div>
+            <div id="summary-empty" class="summary-empty"><span class="summary-empty-icon"><i class="fa-solid fa-car-side"></i></span><strong>Build your trip</strong><p>Choose a car to see your estimate.</p></div>
             <div id="summary-content" hidden>
               <div class="summary-car"><strong id="summary-car-name"></strong><span id="summary-car-location"></span></div>
               <div class="summary-trip-route"><div><span>Pickup</span><strong id="summary-pickup-location">—</strong><small id="summary-pickup-date">—</small></div><i class="fa-solid fa-arrow-right"></i><div><span>Return</span><strong id="summary-return-location">—</strong><small id="summary-return-date">—</small></div></div>
