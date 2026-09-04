@@ -3,6 +3,9 @@
 -- All marketing/business copy below is editable from Admin -> Settings -> Website Content.
 
 INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
+('general','address_country','KE');
+
+INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','nav_home_label','Home'),
 ('website','nav_fleet_label','Fleet'),
 ('website','nav_about_label','About'),
