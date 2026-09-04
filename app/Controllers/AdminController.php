@@ -1412,6 +1412,7 @@ final class AdminController
             'paystackItems'      => $settingsService->group('paystack'),
             'legalItems'         => $settingsService->group('legal'),
             'notificationItems'  => $settingsService->group('notifications'),
+            'websiteItems'       => $settingsService->group('website'),
         ]);
     }
 
