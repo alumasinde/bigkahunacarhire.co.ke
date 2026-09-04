@@ -9,7 +9,6 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111516">
 <title><?= e($seo['title']) ?></title>
 <meta name="description" content="<?= e($seo['description']) ?>">
 <meta name="robots" content="<?= e($seo['robots'] ?? 'index, follow') ?>">
@@ -37,18 +36,10 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
 <link rel="icon" type="image/png" href="<?= asset('images/favicon.png') ?>">
 <link rel="manifest" href="<?= base_url('site.webmanifest') ?>">
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-<link rel="stylesheet" href="<?= asset('css/app.min.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/12-seo-local.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/13-seo-phase4.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/14-booking-phase5.css') ?>">
+<?= style_links() ?>
 
 <?php $gaId = setting('seo', 'google_analytics_id'); if ($gaId): ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?= e($gaId) ?>"></script>
@@ -106,12 +97,6 @@ echo json_encode($businessSchema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)
   'inLanguage'=>'en-KE'
 ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?>
 </script>
-<link rel="stylesheet" href="<?= asset('css/18-customer-phase9.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/19-booking-mobile-phase9.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/20-seo-growth-phase10.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/ui-final.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/booking-v2.css') ?>">
-<link rel="stylesheet" href="<?= asset('css/23-phase5-customer-lifecycle.css') ?>">
 </head>
 <body>
 

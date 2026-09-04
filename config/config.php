@@ -134,6 +134,7 @@ require_once __DIR__ . '/database.php';
 require_once APP_ROOT . '/includes/DbSessionHandler.php';
 require_once APP_ROOT . '/includes/SmtpMailer.php';
 require_once APP_ROOT . '/includes/functions.php';
+require_once APP_ROOT . '/includes/StyleEngine.php';
 require_once APP_ROOT . '/includes/Auth.php';
 require_once APP_ROOT . '/includes/CustomerAuth.php';
 
