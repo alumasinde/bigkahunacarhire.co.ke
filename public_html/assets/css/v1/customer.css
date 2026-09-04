@@ -1,0 +1,58 @@
+/* V2 customer portal and rental lifecycle styles.
+   Existing public rules are not repeated here; only unique customer behavior remains. */
+/* Phase 9 — mobile-first customer rental experience */
+.account-booking-page{padding:2rem 0 4rem}
+.account-booking-top{display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;margin-bottom:1.25rem}
+.account-booking-actions{display:flex;gap:.55rem;flex-wrap:wrap}
+.customer-status-track strong,.customer-status-track small{display:block}
+.customer-status-track strong{font-size:.75rem}
+.customer-status-track small{font-size:.62rem;margin-top:.1rem}
+.customer-rental-card{overflow:hidden}
+.customer-car-heading{display:flex;gap:1rem;align-items:center}
+.customer-car-heading p{margin:0;color:var(--color-text-muted);font-size:.76rem}
+.customer-trip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem;padding-top:1rem;border-top:1px solid #edf0f0}
+.customer-trip-grid small,.customer-trip-grid span{display:block;color:var(--color-text-muted);font-size:.65rem}
+.customer-instructions .card-header i{color:var(--color-primary-900)}
+.customer-instructions>p{font-size:.82rem;line-height:1.65}
+.instruction-box{margin-top:.8rem;padding:.8rem;background:#f7f9f9;border-radius:.65rem}
+.instruction-box strong{font-size:.78rem}
+.instruction-box p{font-size:.78rem;line-height:1.55;margin:.3rem 0 0}
+.customer-payment-card .card-header{margin-bottom:.2rem}
+.customer-payment-status.completed{background:#edf8f1;color:#237743}
+.customer-payment-status.pending{background:#fff8eb;color:#8a5a0b}
+.customer-payment-status.failed{background:#fff0f0;color:#a32c35}
+.customer-receipt{font-size:.72rem;color:var(--color-text-muted)}
+.customer-receipt strong{color:var(--color-primary-900)}
+.btn-whatsapp{background:#218a4a!important;color:#fff!important;border-color:#218a4a!important}
+.customer-inspection-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.customer-inspection-grid>div{padding:.75rem;border:1px solid #e4e9e9;border-radius:.65rem}
+.customer-inspection-grid strong,.customer-inspection-grid span{display:block;font-size:.72rem}
+.customer-inspection-grid span{color:var(--color-text-muted);margin-top:.2rem}
+.customer-inspection-grid p{font-size:.72rem;line-height:1.5}
+.confirmation-account-note{display:flex;align-items:center;justify-content:center;gap:.55rem;flex-wrap:wrap;padding:.75rem;background:#f4f8f8;border-radius:.7rem;margin:1rem auto;max-width:650px;font-size:.75rem}
+.confirmation-account-note a{font-weight:700;color:var(--color-primary-900)}
+.print-agreement{padding:2rem 0 4rem}
+.agreement-actions{display:flex;justify-content:flex-end;gap:.5rem;margin-bottom:1.5rem}
+.agreement-head{text-align:center;border-bottom:2px solid #172d33;padding-bottom:1rem}
+.agreement-head h1{margin:.35rem 0;font-size:1.5rem}
+.agreement-head p{margin:0;color:var(--color-text-muted)}
+.agreement-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:1.2rem 0}
+.agreement-grid>div{padding:.8rem;border:1px solid #e2e7e7;border-radius:.5rem}
+.agreement-grid small,.agreement-grid strong,.agreement-grid span{display:block}
+.agreement-grid small{font-size:.62rem;text-transform:uppercase;color:var(--color-text-muted)}
+.agreement-grid strong{font-size:.8rem;margin:.15rem 0}
+.agreement-grid span{font-size:.72rem;color:var(--color-text-muted)}
+.agreement-section{margin-top:1.2rem}
+.agreement-section h2{font-size:1rem;border-bottom:1px solid #e3e8e8;padding-bottom:.45rem}
+.agreement-section p,.agreement-terms{font-size:.76rem;line-height:1.65}
+.agreement-footer{margin-top:2rem;padding-top:.8rem;border-top:1px solid #e3e8e8;color:var(--color-text-muted);font-size:.7rem}
+@media(max-width:800px){.account-booking-top{align-items:flex-start;flex-direction:column}.account-booking-grid{grid-template-columns:1fr}.customer-trip-grid{grid-template-columns:1fr 1fr}.account-booking-actions{width:100%}}
+@media(max-width:520px){.customer-status-track{grid-template-columns:repeat(2,1fr)}.customer-car-heading{align-items:flex-start}.customer-trip-grid,.customer-inspection-grid,.agreement-grid{grid-template-columns:1fr}.account-booking-actions .btn{flex:1}.customer-car-heading img,.customer-car-placeholder{width:90px;height:68px}}
+.account-payment-actions{display:grid;gap:.65rem;margin-top:.8rem}
+.account-payment-actions .btn{min-height:46px}
+.account-payment-actions .btn-outline{color:var(--color-primary-900);border-color:var(--color-primary-900)}
+.account-payment-complete{display:flex;gap:.55rem;align-items:flex-start;padding:.75rem;border-radius:.7rem;background:#edf8f1;color:#237743;font-size:.76rem;margin-top:.75rem}
+.account-payment-complete i{margin-top:.15rem}
+.account-payment-actions .payment-waiting{margin-top:0}
+
+.booking-status-page{max-width:1080px;margin:0 auto;padding:52px 20px 80px}.booking-status-hero{margin-bottom:28px}.booking-status-hero h1{margin:4px 0 8px;font-size:clamp(2rem,5vw,3.2rem)}.booking-status-hero p{color:var(--color-text-faint)}.booking-status-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.booking-summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;padding:20px}.booking-summary-grid div{padding:15px;border:1px solid var(--color-border,#e7ecee);border-radius:14px}.booking-summary-grid small,.booking-summary-grid span{display:block;color:var(--color-text-faint);font-size:.82rem}.booking-summary-grid strong{display:block;margin:5px 0}.booking-status-help{margin-top:18px;padding:18px;display:flex;gap:10px;align-items:center}@media(max-width:760px){.booking-status-grid{grid-template-columns:1fr}.booking-summary-grid{grid-template-columns:1fr}.booking-status-help{align-items:flex-start;flex-direction:column}}.whatsapp-opt-in-row{display:flex;align-items:flex-start;gap:.7rem}.whatsapp-opt-in-row input{margin-top:.2rem}.whatsapp-opt-in-row span{display:flex;flex-direction:column;gap:.2rem}.whatsapp-opt-in-row small{font-size:.78rem;opacity:.75;line-height:1.45}
