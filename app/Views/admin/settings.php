@@ -22,6 +22,29 @@
 </div>
 
 <div class="card">
+  <div class="card-header"><h2>Website Content</h2></div>
+  <p class="settings-help">All public marketing copy and customer-facing business content is stored here. Update these values without editing PHP files.</p>
+  <form action="<?= base_url('admin/settings/save') ?>" method="post">
+    <?= csrf_field() ?>
+    <input type="hidden" name="group" value="website">
+    <div class="form-row">
+      <?php foreach ($websiteItems as $item): ?>
+        <?php $key = $item['setting_key']; $longText = str_ends_with($key, '_text') || str_contains($key, 'intro') || str_contains($key, 'lead') || str_contains($key, 'note'); ?>
+        <div class="form-group">
+          <label for="web-<?= e($key) ?>"><?= e(label_from_key($key)) ?></label>
+          <?php if ($longText): ?>
+            <textarea id="web-<?= e($key) ?>" name="settings[<?= e($key) ?>]" rows="3"><?= e($item['setting_value']) ?></textarea>
+          <?php else: ?>
+            <input type="text" id="web-<?= e($key) ?>" name="settings[<?= e($key) ?>]" value="<?= e($item['setting_value']) ?>">
+          <?php endif; ?>
+        </div>
+      <?php endforeach; ?>
+    </div>
+    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Website Content</button>
+  </form>
+</div>
+
+<div class="card">
   <div class="card-header"><h2>SEO Settings</h2></div>
   <p style="color:var(--color-text-faint);font-size:0.85rem;margin-bottom:16px;">Controls page titles, meta descriptions and other SEO metadata across the site. Per-page fields (e.g. <code>home_title</code>) override the site-wide defaults.</p>
   <form action="<?= base_url('admin/settings/save') ?>" method="post">
