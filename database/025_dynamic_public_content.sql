@@ -28,6 +28,10 @@ INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','search_price_label','Maximum price / day'),
 ('website','search_button_label','Search Cars'),
 ('website','search_note','Use the filters to narrow down the live fleet.'),
+('website','search_any_category_label','Any category'),
+('website','search_any_transmission_label','Any transmission'),
+('website','search_any_seats_label','Any number'),
+('website','search_any_price_label','Any price'),
 
 ('website','trust_1_title','Well-maintained cars'),
 ('website','trust_1_text','Ready for your next trip'),
@@ -124,7 +128,7 @@ INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','contact_form_subject_placeholder','e.g. Booking enquiry'),
 ('website','contact_form_button_label','Send Message'),
 
-('website','footer_brand_name',''),
+('website','footer_brand_name','Big Kahuna Car Hire'),
 ('website','footer_quick_links_title','Quick Links'),
 ('website','footer_support_title','Support'),
 ('website','footer_contact_title','Get In Touch'),
