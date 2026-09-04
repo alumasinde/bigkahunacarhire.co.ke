@@ -1,9 +1,10 @@
 <?php view('layouts/header', ['seo' => $seo]); ?>
+<?php $w = static fn(string $key, string $default = ''): string => setting('website', $key, $default); ?>
 
 <div class="bk-page-hero">
   <div class="container">
-    <h1>Find your next ride</h1>
-    <p>Browse the Big Kahuna fleet, compare daily rates and choose a vehicle that fits your trip across Kenya.</p>
+    <h1><?= e($w('fleet_title')) ?></h1>
+    <p><?= e($w('fleet_intro')) ?></p>
     <div class="breadcrumb"><a href="<?= base_url('/') ?>">Home</a> / Fleet</div>
   </div>
 </div>
@@ -15,11 +16,11 @@
       <div class="form-group"><label for="f-transmission">Transmission</label><select id="f-transmission" name="transmission"><option value="">Any</option><option value="automatic" <?= $filters['transmission'] === 'automatic' ? 'selected' : '' ?>>Automatic</option><option value="manual" <?= $filters['transmission'] === 'manual' ? 'selected' : '' ?>>Manual</option></select></div>
       <div class="form-group"><label for="f-seats">Minimum seats</label><select id="f-seats" name="seats"><option value="">Any</option><?php foreach ([4,5,7,14] as $s): ?><option value="<?= $s ?>" <?= $filters['seats'] == $s ? 'selected' : '' ?>><?= $s ?>+</option><?php endforeach; ?></select></div>
       <div class="form-group"><label for="f-price">Maximum price / day</label><select id="f-price" name="max_price"><option value="">Any</option><?php foreach ([5000,10000,15000,20000] as $p): ?><option value="<?= $p ?>" <?= $filters['max_price'] == $p ? 'selected' : '' ?>>KES <?= number_format($p) ?></option><?php endforeach; ?></select></div>
-      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-filter"></i> Filter Fleet</button>
+      <button type="submit" class="btn btn-primary"><i class="fa-solid fa-filter"></i> <?= e($w('fleet_filter_button')) ?></button>
     </form>
 
     <?php if (empty($cars)): ?>
-      <div class="empty-state"><i class="fa-solid fa-car-side"></i><p>No cars match those filters right now. Try widening your search.</p><a href="<?= base_url('fleet') ?>" class="btn btn-dark mt-2">Clear Filters</a></div>
+      <div class="empty-state"><i class="fa-solid fa-car-side"></i><p><?= e($w('fleet_empty_message')) ?></p><a href="<?= base_url('fleet') ?>" class="btn btn-dark mt-2"><?= e($w('fleet_clear_filters_label')) ?></a></div>
     <?php else: ?>
       <div class="bk-fleet-grid" style="margin-top:42px">
         <?php foreach ($cars as $car): ?>

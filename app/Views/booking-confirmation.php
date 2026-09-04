@@ -1,11 +1,12 @@
 <?php view('layouts/header', ['seo' => $seo]); ?>
+<?php $w = static fn(string $key, string $default = ''): string => setting('website', $key, $default); ?>
 
 <section>
   <div class="container text-center booking-success-page">
     <div class="booking-success-icon"><i class="fa-solid fa-check"></i></div>
     <?php $isConfirmed = $booking && ($booking['status'] ?? '') === 'confirmed'; ?>
-    <h1><?= $isConfirmed ? 'Booking Confirmed' : 'Booking Request Received' ?><?= $booking ? ', ' . e($booking['first_name']) : '' ?>!</h1>
-    <p class="booking-success-lead"><?= $isConfirmed ? 'Your reservation is confirmed. Use the payment option below to pay any amount still due.' : 'Your request is in our system. Use the payment option below to pay the required deposit.' ?></p>
+    <h1><?= e($isConfirmed ? $w('confirmation_confirmed_title') : $w('confirmation_received_title')) ?><?= $booking ? ', ' . e($booking['first_name']) : '' ?>!</h1>
+    <p class="booking-success-lead"><?= e($isConfirmed ? $w('confirmation_confirmed_lead') : $w('confirmation_received_lead')) ?></p>
 
     <?php if ($booking): ?>
       <div class="booking-reference-card">
@@ -17,8 +18,8 @@
       <?php if (!empty($publicToken)): ?>
         <div class="confirmation-account-note">
           <i class="fa-solid fa-link"></i>
-          <span>Keep this private link to check your booking without logging in.</span>
-          <a href="<?= base_url('booking/' . rawurlencode($booking['booking_ref']) . '/' . rawurlencode($publicToken)) ?>">Track Booking</a>
+          <span><?= e($w('confirmation_private_link')) ?></span>
+          <a href="<?= base_url('booking/' . rawurlencode($booking['booking_ref']) . '/' . rawurlencode($publicToken)) ?>"><?= e($w('confirmation_track_booking')) ?></a>
         </div>
       <?php endif; ?>
 
@@ -44,8 +45,8 @@
         <div class="payment-state payment-state-success">
           <i class="fa-solid fa-circle-check"></i>
           <div>
-            <strong>Payment complete</strong>
-            <span>Your recorded payments cover the full booking total.</span>
+            <strong><?= e($w('confirmation_payment_complete')) ?></strong>
+            <span><?= e($w('confirmation_payment_complete_text')) ?></span>
           </div>
         </div>
         <?php if ($paymentCompleted && !empty($payment['reference'])): ?>
@@ -130,8 +131,8 @@
     <?php endif; ?>
 
     <div class="hero-actions booking-actions">
-      <a href="<?= base_url('fleet') ?>" class="btn btn-dark">Browse More Cars</a>
-      <a href="<?= base_url('/') ?>" class="btn btn-outline" style="color:var(--color-primary-900);border-color:var(--color-primary-900);">Back to Home</a>
+      <a href="<?= base_url('fleet') ?>" class="btn btn-dark"><?= e($w('confirmation_browse_cars')) ?></a>
+      <a href="<?= base_url('/') ?>" class="btn btn-outline" style="color:var(--color-primary-900);border-color:var(--color-primary-900);"><?= e($w('back_home_label')) ?></a>
     </div>
   </div>
 </section>

@@ -8,9 +8,9 @@ final class ReviewController
         $s = ReviewService::make();
         view('reviews', [
             'seo' => [
-                'title' => 'Customer Reviews | Big Kahuna Car Hire',
-                'description' => 'Read recent Big Kahuna Car Hire reviews from Google and Tripadvisor.',
-                'keywords' => 'Big Kahuna Car Hire reviews, Google reviews, Tripadvisor reviews',
+                'title' => 'Customer Reviews | ' . setting('general', 'site_name'),
+                'description' => setting('website', 'reviews_page_text'),
+                'keywords' => setting('seo', 'default_meta_keywords'),
                 'og_image' => setting('seo','og_image'),
                 'robots' => 'index, follow'
             ],

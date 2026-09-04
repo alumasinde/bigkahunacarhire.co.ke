@@ -6,24 +6,25 @@ unset($_SESSION['old_input'], $_SESSION['errors']);
 $selectedCarId = (int)($old['car_id'] ?? $carId ?? 0);
 $carServiceForFees = CarService::make();
 $depositPct = max(1, min(100, (float)setting('paystack', 'deposit_percentage', '30')));
+$w = static fn(string $key, string $default = ''): string => setting('website', $key, $default);
 ?>
 
 <section class="booking-v2-hero">
   <div class="container">
-    <div class="booking-v2-eyebrow">BIG KAHUNA CAR HIRE</div>
-    <h1>Book your car in minutes.</h1>
-    <p>Choose a car, tell us when and where you need it, then send your booking request. We will confirm availability before payment.</p>
+    <div class="booking-v2-eyebrow"><?= e($w('booking_eyebrow')) ?></div>
+    <h1><?= e($w('booking_title')) ?></h1>
+    <p><?= e($w('booking_intro')) ?></p>
   </div>
 </section>
 
 <section class="booking-v2-section">
   <div class="container booking-v2-container">
     <div class="booking-v2-progress" aria-label="Booking progress">
-      <div class="booking-v2-progress-item is-active" data-step-indicator="1"><span>1</span><strong>Trip</strong></div>
+      <div class="booking-v2-progress-item is-active" data-step-indicator="1"><span>1</span><strong><?= e($w('booking_step_trip')) ?></strong></div>
       <i class="fa-solid fa-chevron-right"></i>
-      <div class="booking-v2-progress-item" data-step-indicator="2"><span>2</span><strong>Your details</strong></div>
+      <div class="booking-v2-progress-item" data-step-indicator="2"><span>2</span><strong><?= e($w('booking_step_details')) ?></strong></div>
       <i class="fa-solid fa-chevron-right"></i>
-      <div class="booking-v2-progress-item" data-step-indicator="3"><span>3</span><strong>Confirm</strong></div>
+      <div class="booking-v2-progress-item" data-step-indicator="3"><span>3</span><strong><?= e($w('booking_step_confirm')) ?></strong></div>
     </div>
 
     <form id="booking-form" action="<?= base_url('book') ?>" method="post" novalidate>
@@ -35,11 +36,11 @@ $depositPct = max(1, min(100, (float)setting('paystack', 'deposit_percentage', '
           <section class="booking-v2-card booking-panel-v2 is-active" data-step="1">
             <div class="booking-v2-heading">
               <div class="booking-v2-step-number">01</div>
-              <div><h2>Plan your trip</h2><p>Pick your car, dates and driving option.</p></div>
+              <div><h2><?= e($w('booking_plan_title')) ?></h2><p><?= e($w('booking_plan_text')) ?></p></div>
             </div>
 
             <div class="booking-v2-fieldset">
-              <div class="booking-v2-label-row"><label>Choose your car</label><span>Availability is checked for your dates</span></div>
+              <div class="booking-v2-label-row"><label><?= e($w('booking_choose_car_label')) ?></label><span><?= e($w('booking_availability_hint')) ?></span></div>
               <div class="booking-availability-message" id="booking-availability-message" role="status" aria-live="polite" hidden></div>
               <div class="booking-car-grid" id="booking-car-grid">
                 <?php foreach ($cars as $car):
@@ -64,17 +65,18 @@ $depositPct = max(1, min(100, (float)setting('paystack', 'deposit_percentage', '
             </div>
 
             <div class="booking-v2-fieldset">
-              <div class="booking-v2-label-row"><label>When and where?</label><span>Times help us prepare your pickup</span></div>
+              <div class="booking-v2-label-row"><label><?= e($w('booking_when_where_label')) ?></label><span><?= e($w('booking_when_where_hint')) ?></span></div>
               <div class="form-row">
                 <div class="form-group"><label for="pickup_location">Pickup location</label><input type="text" id="pickup_location" name="pickup_location" placeholder="e.g. JKIA, Nairobi" value="<?= e($old['pickup_location'] ?? '') ?>" autocomplete="street-address" required></div>
                 <div class="form-group"><label for="dropoff_location">Return location</label><input type="text" id="dropoff_location" name="dropoff_location" placeholder="e.g. Westlands, Nairobi" value="<?= e($old['dropoff_location'] ?? '') ?>" autocomplete="street-address" required></div>
               </div>
-              <div class="location-shortcuts" aria-label="Popular locations">
-                <button type="button" data-location-value="JKIA, Nairobi">JKIA</button>
-                <button type="button" data-location-value="Westlands, Nairobi">Westlands</button>
-                <button type="button" data-location-value="Nairobi CBD">Nairobi CBD</button>
-                <button type="button" data-location-value="Moi International Airport, Mombasa">MBA Airport</button>
-              </div>
+              <?php if (!empty($locationShortcuts)): ?>
+                <div class="location-shortcuts" aria-label="<?= e($w('booking_popular_locations_label')) ?>">
+                  <?php foreach ($locationShortcuts as $location): ?>
+                    <button type="button" data-location-value="<?= e($location) ?>"><?= e($location) ?></button>
+                  <?php endforeach; ?>
+                </div>
+              <?php endif; ?>
               <div class="form-row booking-v2-dates">
                 <div class="form-group"><label for="pickup_date">Pickup</label><input type="datetime-local" id="pickup_date" name="pickup_date" value="<?= e($old['pickup_date'] ?? '') ?>" required></div>
                 <div class="form-group"><label for="return_date">Return</label><input type="datetime-local" id="return_date" name="return_date" value="<?= e($old['return_date'] ?? '') ?>" required></div>
@@ -87,18 +89,18 @@ $depositPct = max(1, min(100, (float)setting('paystack', 'deposit_percentage', '
             <div class="booking-v2-fieldset">
               <div class="booking-v2-label-row"><label>How will you travel?</label><span>Choose one</span></div>
               <div class="driver-choice-grid">
-                <label class="driver-option-card"><input type="radio" name="driver_option" value="self_drive" <?= ($old['driver_option'] ?? 'self_drive') === 'self_drive' ? 'checked' : '' ?>><span><i class="fa-solid fa-steering-wheel"></i><strong>Self-drive</strong><small>You drive the vehicle</small></span></label>
-                <label class="driver-option-card"><input type="radio" name="driver_option" value="with_driver" <?= ($old['driver_option'] ?? '') === 'with_driver' ? 'checked' : '' ?>><span><i class="fa-solid fa-user-tie"></i><strong>With chauffeur</strong><small>Professional driver included</small></span></label>
+                <label class="driver-option-card"><input type="radio" name="driver_option" value="self_drive" <?= ($old['driver_option'] ?? 'self_drive') === 'self_drive' ? 'checked' : '' ?>><span><i class="fa-solid fa-steering-wheel"></i><strong><?= e($w('booking_self_drive_title')) ?></strong><small><?= e($w('booking_self_drive_text')) ?></small></span></label>
+                <label class="driver-option-card"><input type="radio" name="driver_option" value="with_driver" <?= ($old['driver_option'] ?? '') === 'with_driver' ? 'checked' : '' ?>><span><i class="fa-solid fa-user-tie"></i><strong><?= e($w('booking_chauffeur_title')) ?></strong><small><?= e($w('booking_chauffeur_text')) ?></small></span></label>
               </div>
               <span id="chauffeur-fee-note" class="price-note"></span>
               <?php if (!empty($errors['driver_option'])): ?><span class="field-error"><?= e($errors['driver_option']) ?></span><?php endif; ?>
             </div>
 
-            <div class="booking-v2-actions"><span></span><button type="button" class="btn btn-primary" data-next>Continue <i class="fa-solid fa-arrow-right"></i></button></div>
+            <div class="booking-v2-actions"><span></span><button type="button" class="btn btn-primary" data-next><?= e($w('booking_continue_label')) ?> <i class="fa-solid fa-arrow-right"></i></button></div>
           </section>
 
           <section class="booking-v2-card booking-panel-v2" data-step="2" hidden>
-            <div class="booking-v2-heading"><div class="booking-v2-step-number">02</div><div><h2>Your details</h2><p>We'll use these details for confirmation and pickup.</p></div></div>
+            <div class="booking-v2-heading"><div class="booking-v2-step-number">02</div><div><h2><?= e($w('booking_details_title')) ?></h2><p><?= e($w('booking_details_text')) ?></p></div></div>
             <div class="form-row">
               <div class="form-group"><label for="first_name">First name</label><input type="text" id="first_name" name="first_name" value="<?= e($old['first_name'] ?? '') ?>" autocomplete="given-name" required><?php if (!empty($errors['first_name'])): ?><span class="field-error"><?= e($errors['first_name']) ?></span><?php endif; ?></div>
               <div class="form-group"><label for="last_name">Last name</label><input type="text" id="last_name" name="last_name" value="<?= e($old['last_name'] ?? '') ?>" autocomplete="family-name" required><?php if (!empty($errors['last_name'])): ?><span class="field-error"><?= e($errors['last_name']) ?></span><?php endif; ?></div>
@@ -111,11 +113,11 @@ $depositPct = max(1, min(100, (float)setting('paystack', 'deposit_percentage', '
               <div class="form-group"><label for="id_number">National ID / Passport No.</label><input type="text" id="id_number" name="id_number" placeholder="e.g. 30123456" value="<?= e($old['id_number'] ?? '') ?>" required><?php if (!empty($errors['id_number'])): ?><span class="field-error"><?= e($errors['id_number']) ?></span><?php endif; ?></div>
               <div class="form-group" id="license-field"><label for="driving_license_number">Driving licence No. <span class="optional-label" id="license-optional">Required for self-drive</span></label><input type="text" id="driving_license_number" name="driving_license_number" placeholder="Driving licence number" value="<?= e($old['driving_license_number'] ?? '') ?>"><?php if (!empty($errors['driving_license_number'])): ?><span class="field-error"><?= e($errors['driving_license_number']) ?></span><?php endif; ?></div>
             </div>
-            <div class="booking-v2-actions"><button type="button" class="btn btn-outline btn-on-light" data-prev><i class="fa-solid fa-arrow-left"></i> Back</button><button type="button" class="btn btn-primary" data-next>Review booking <i class="fa-solid fa-arrow-right"></i></button></div>
+            <div class="booking-v2-actions"><button type="button" class="btn btn-outline btn-on-light" data-prev><i class="fa-solid fa-arrow-left"></i> Back</button><button type="button" class="btn btn-primary" data-next><?= e($w('booking_review_button')) ?> <i class="fa-solid fa-arrow-right"></i></button></div>
           </section>
 
           <section class="booking-v2-card booking-panel-v2" data-step="3" hidden>
-            <div class="booking-v2-heading"><div class="booking-v2-step-number">03</div><div><h2>Check and send</h2><p>Your request is not confirmed until Big Kahuna confirms availability.</p></div></div>
+            <div class="booking-v2-heading"><div class="booking-v2-step-number">03</div><div><h2><?= e($w('booking_check_send_title')) ?></h2><p><?= e($w('booking_check_send_text')) ?></p></div></div>
             <div id="booking-review" class="booking-review"></div>
             <div class="form-group"><label for="notes">Anything else? <span class="optional-label">Optional</span></label><textarea id="notes" name="notes" placeholder="Flight number, special request, child seat, or anything we should know."><?= e($old['notes'] ?? '') ?></textarea></div>
             <div class="booking-v2-agreement">

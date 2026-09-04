@@ -11,6 +11,26 @@ final class HomeController
         $seoService = SeoService::make();
         $reviewService = ReviewService::make();
 
+        $fleetForFilters = $cars->all();
+
+        $transmissionOptions = array_values(array_unique(array_filter(array_map(
+            static fn(array $car): string => (string) ($car['transmission'] ?? ''),
+            $fleetForFilters
+        ), static fn(string $transmission): bool => $transmission !== '')));
+        sort($transmissionOptions);
+
+        $seatOptions = array_values(array_unique(array_filter(array_map(
+            static fn(array $car): int => (int) ($car['seats'] ?? 0),
+            $fleetForFilters
+        ), static fn(int $seats): bool => $seats > 0)));
+        sort($seatOptions);
+
+        $priceOptions = array_values(array_unique(array_filter(array_map(
+            static fn(array $car): float => (float) ($car['price_per_day'] ?? 0),
+            $fleetForFilters
+        ), static fn(float $price): bool => $price > 0)));
+        sort($priceOptions);
+
         view('home', [
             'seo'          => seo_for('home'),
             'featuredCars' => $cars->featured(6),
@@ -25,6 +45,9 @@ final class HomeController
                 $seoService->all(false),
                 fn(array $page): bool => ($page['page_type'] ?? '') === 'airport'
             )), 
+            'transmissionOptions' => $transmissionOptions,
+            'seatOptions'  => $seatOptions,
+            'priceOptions' => $priceOptions,
             'stats'        => [
                 'car_count'     => $cars->activeCount(),
                 'booking_count' => $bookings->totalCount(),
@@ -140,7 +163,7 @@ final class HomeController
             $pageKey = (string)($page['page_key'] ?? '');
             if ($pageKey === '') continue;
 
-            $priority = in_array($pageKey, ['locations/nairobi','locations/mombasa','airports/jkia','airports/mombasa'], true)
+            $priority = ($page['page_type'] ?? '') === 'location' || ($page['page_type'] ?? '') === 'airport'
                 ? '0.9'
                 : '0.7';
 

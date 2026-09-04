@@ -1,4 +1,5 @@
 <?php view('layouts/header', ['seo' => $seo]); ?>
+<?php $w = static fn(string $key, string $default = ''): string => setting('website', $key, $default); ?>
 
 <?php
 // Per-car structured data — lets Google show price/availability directly
@@ -15,7 +16,7 @@ $carJsonLd = [
     'fuelType'                => $car['fuel_type'],
     'vehicleSeatingCapacity' => (int) $car['seats'],
     'numberOfDoors'          => (int) $car['doors'],
-    'description'            => $car['description'] ?: ($car['name'] . ' available for hire.'),
+    'description'            => $car['description'] ?: ($car['name'] . ' ' . $w('vehicle_default_description')),
     'offers'                 => [
         '@type'         => 'Offer',
         'priceCurrency' => setting('general', 'currency', 'KES'),
@@ -32,7 +33,7 @@ if (!empty($car['image_path'])) {
 
 <div class="bk-detail-hero">
   <div class="container">
-    <div class="breadcrumb"><a href="<?= base_url('/') ?>">Home</a> <span aria-hidden="true">/</span> <a href="<?= base_url('fleet') ?>">Fleet</a> <span aria-hidden="true">/</span> <span><?= e($car['name']) ?></span></div>
+    <div class="breadcrumb"><a href="<?= base_url('/') ?>"><?= e($w('nav_home_label','Home')) ?></a> <span aria-hidden="true">/</span> <a href="<?= base_url('fleet') ?>"><?= e($w('nav_fleet_label','Fleet')) ?></a> <span aria-hidden="true">/</span> <span><?= e($car['name']) ?></span></div>
     <h1><?= e($car['name']) ?></h1>
   </div>
 </div>
@@ -65,8 +66,8 @@ if (!empty($car['image_path'])) {
         </script>
       <?php endif; ?>
 
-      <h2>Vehicle overview</h2>
-      <p><?= nl2br(e($car['description'] ?: 'Well-maintained vehicle, serviced regularly and fully insured, ready for your next trip.')) ?></p>
+      <h2><?= e($w('vehicle_overview_title')) ?></h2>
+      <p><?= nl2br(e($car['description'] ?: $w('vehicle_default_description'))) ?></p>
 
       <div class="bk-detail-specs">
         <div class="bk-detail-spec"><i class="fa-solid fa-users"></i><div><span>Seats</span><strong><?= (int) $car['seats'] ?></strong></div></div>
@@ -80,12 +81,12 @@ if (!empty($car['image_path'])) {
 
     <aside class="bk-detail-booking">
       <p class="bk-car-cat"><?= e($car['category_name'] ?? '') ?></p>
-      <div class="bk-detail-price"><small>Daily rental rate</small><?= money($car['price_per_day']) ?></div>
+      <div class="bk-detail-price"><small><?= e($w('vehicle_daily_rate_label')) ?></small><?= money($car['price_per_day']) ?></div>
       <?php $chauffeurFee = CarService::make()->effectiveChauffeurFee($car); ?>
-      <?php if ($chauffeurFee > 0): ?><p class="status-text"><i class="fa-solid fa-id-badge"></i> With chauffeur: +<?= money($chauffeurFee) ?>/day</p><?php endif; ?>
-      <div class="bk-status"><span>Availability</span><strong class="<?= $car['status'] === 'available' ? 'status-available' : 'status-unavailable' ?>"><?= e(ucfirst($car['status'])) ?></strong></div>
-      <a href="<?= base_url('book?car=' . (int) $car['id']) ?>" class="btn btn-primary btn-block"><i class="fa-solid fa-calendar-check"></i> Book This Car</a>
-      <a href="https://wa.me/<?= e(setting('general', 'whatsapp_number')) ?>?text=<?= urlencode('Hi, I am interested in the ' . $car['name'] . ' on Big Kahuna Car Hire.') ?>" target="_blank" rel="noopener" class="btn btn-outline btn-on-light btn-block mt-2"><i class="fa-brands fa-whatsapp"></i> Ask on WhatsApp</a>
+      <?php if ($chauffeurFee > 0): ?><p class="status-text"><i class="fa-solid fa-id-badge"></i> <?= e($w('vehicle_chauffeur_prefix')) ?> +<?= money($chauffeurFee) ?>/day</p><?php endif; ?>
+      <div class="bk-status"><span><?= e($w('vehicle_availability_label')) ?></span><strong class="<?= $car['status'] === 'available' ? 'status-available' : 'status-unavailable' ?>"><?= e(ucfirst($car['status'])) ?></strong></div>
+      <a href="<?= base_url('book?car=' . (int) $car['id']) ?>" class="btn btn-primary btn-block"><i class="fa-solid fa-calendar-check"></i> <?= e($w('vehicle_book_button')) ?></a>
+      <a href="https://wa.me/<?= e(setting('general', 'whatsapp_number')) ?>?text=<?= urlencode($w('vehicle_whatsapp_interest') . ' ' . $car['name']) ?>" target="_blank" rel="noopener" class="btn btn-outline btn-on-light btn-block mt-2"><i class="fa-brands fa-whatsapp"></i> <?= e($w('vehicle_whatsapp_button')) ?></a>
     </aside>
   </div>
 </section>
@@ -102,7 +103,7 @@ $vehicleSchema = [
   'description' => strip_tags((string)($car['description'] ?: $seo['description'])),
   'url' => $vehicleUrl,
   'image' => $vehicleImage,
-  'brand' => ['@type'=>'Brand','name'=>'Big Kahuna Car Hire'],
+  'brand' => ['@type'=>'Brand','name'=>setting('general','site_name')],
   'category' => $car['category_name'] ?? null,
   'offers' => [
     '@type' => 'Offer',
@@ -130,8 +131,8 @@ if (!$vehicleSchema['category']) unset($vehicleSchema['category']);
   '@context'=>'https://schema.org',
   '@type'=>'BreadcrumbList',
   'itemListElement'=>[
-    ['@type'=>'ListItem','position'=>1,'name'=>'Home','item'=>base_url('')],
-    ['@type'=>'ListItem','position'=>2,'name'=>'Fleet','item'=>base_url('fleet')],
+    ['@type'=>'ListItem','position'=>1,'name'=>$w('nav_home_label','Home'),'item'=>base_url('')],
+    ['@type'=>'ListItem','position'=>2,'name'=>$w('nav_fleet_label','Fleet'),'item'=>base_url('fleet')],
     ['@type'=>'ListItem','position'=>3,'name'=>$car['name'],'item'=>$vehicleUrl],
   ]
 ], JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE) ?>

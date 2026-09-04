@@ -8,10 +8,20 @@ final class BookingController
         $carService = CarService::make();
         $preselectedCarId = isset($_GET['car']) ? (int) $_GET['car'] : null;
 
+        $seoPages = SeoService::make()->all(false);
+        $locationShortcuts = [];
+        foreach ($seoPages as $page) {
+            if (!in_array(($page['page_type'] ?? ''), ['location', 'airport'], true)) continue;
+            $name = trim((string)($page['name'] ?? ''));
+            if ($name === '') continue;
+            $locationShortcuts[$name] = $name;
+        }
+
         view('booking', [
-            'seo'   => seo_for('booking'),
-            'cars'  => $carService->search(),
-            'carId' => $preselectedCarId,
+            'seo'               => seo_for('booking'),
+            'cars'              => $carService->search(),
+            'carId'             => $preselectedCarId,
+            'locationShortcuts' => array_slice(array_values($locationShortcuts), 0, 8),
         ]);
     }
 
@@ -190,7 +200,7 @@ final class BookingController
         $nextPaymentPurpose=$nextPayment>0 ? 'deposit' : ($balance>0 ? 'balance' : 'paid');
         if($nextPaymentPurpose==='balance') $nextPayment=$balance;
         view('booking-status',[
-            'seo'=>array_merge(seo_for('booking'),['robots'=>'noindex,nofollow','title'=>'Booking '.$booking['booking_ref'].' | Big Kahuna']),
+            'seo'=>array_merge(seo_for('booking'),['robots'=>'noindex,nofollow','title'=>'Booking '.$booking['booking_ref'].' | '.setting('general','site_name')]),
             'booking'=>$booking,'payment'=>$payment,'paid'=>$paid,'balance'=>$balance,
             'publicToken'=>$token,
             'paystackEnabled'=>PAYSTACK_ENABLED && PAYSTACK_SECRET_KEY!=='' && setting('paystack','enabled','1')==='1',
