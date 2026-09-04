@@ -1,5 +1,11 @@
 <?php
 
 return [
-    'legacy.css',
+    'base.css',
+    'layout.css',
+    'components.css',
+    'public.css',
+    'booking.css',
+    'customer.css',
+    'seo.css',
 ];
