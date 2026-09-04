@@ -13,6 +13,12 @@ final class HomeController
 
         $fleetForFilters = $cars->all();
 
+        $transmissionOptions = array_values(array_unique(array_filter(array_map(
+            static fn(array $car): string => (string) ($car['transmission'] ?? ''),
+            $fleetForFilters
+        ), static fn(string $transmission): bool => $transmission !== '')));
+        sort($transmissionOptions);
+
         $seatOptions = array_values(array_unique(array_filter(array_map(
             static fn(array $car): int => (int) ($car['seats'] ?? 0),
             $fleetForFilters
@@ -39,6 +45,7 @@ final class HomeController
                 $seoService->all(false),
                 fn(array $page): bool => ($page['page_type'] ?? '') === 'airport'
             )), 
+            'transmissionOptions' => $transmissionOptions,
             'seatOptions'  => $seatOptions,
             'priceOptions' => $priceOptions,
             'stats'        => [
