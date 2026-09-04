@@ -1,7 +1,0 @@
-
-/* Phase 4 — technical SEO presentation helpers */
-.breadcrumbs,.breadcrumb{font-size:.9rem}
-.breadcrumbs{display:flex;gap:.55rem;align-items:center}
-.car-detail-img img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover}
-.car-gallery-thumb{width:88px;height:66px;object-fit:cover}
-.seo-entity-note{font-size:.9rem;color:var(--color-text-muted,#667579)}

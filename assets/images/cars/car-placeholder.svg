@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Car image unavailable">
-<rect width="800" height="500" fill="#eef2f1"/>
-<path d="M184 326h432c20 0 36-16 36-36v-26c0-12-8-23-19-28l-77-35c-12-5-25-8-38-8H314c-19 0-37 8-49 22l-52 61c-7 8-11 18-11 28v16c0 4 1 6 4 6h-22v20zm81-95 40-45c5-6 12-9 20-9h120l30 54H265zm-22 74a26 26 0 1 1 52 0 26 26 0 0 1-52 0zm292 0a26 26 0 1 1 52 0 26 26 0 0 1-52 0z" fill="#0b2e3d"/>
-<text x="400" y="408" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#5f6e72">Vehicle image coming soon</text>
-</svg>

@@ -1,46 +1,42 @@
 # Big Kahuna CSS Architecture
 
-The public website uses one versioned style engine.
+## Single public asset root
 
-## Shared foundation
+The only runtime asset directory is:
 
-`components/` contains CSS shared by every public style version:
+`public_html/assets/`
 
-- `00-tokens.css`
-- `01-base.css`
-- `02-buttons.css`
-- `03-forms.css`
-- `04-header.css`
-- `05-hero.css`
-- `06-sections.css`
-- `07-cards.css`
-- `08-footer.css`
-- `09-utilities.css`
+The repository-root `assets/` directory was removed because it duplicated the public files and was not served by the application.
 
-## V1 — default
+## Versioned public styles
 
-`v1/` is the production default:
+The active version is selected in:
+
+`config/design/active.ini`
+
+Current default:
+
+`style_version = "v1"`
+
+The canonical loader is:
+
+`includes/StyleEngine.php`
+
+Each version has one small, ordered manifest:
 
 - `01-public.css` — public page presentation
-- `02-components.css` — V1 component refinements
-- `03-booking.css` — booking experience
+- `02-components.css` — shared public components
+- `03-booking.css` — booking UI refinements
 
-## V2 — alternative
+The manifest is the source of truth for what the public site loads.
 
-`v2/` mirrors the same naming convention for safe visual experimentation.
+## Admin styles
 
-## Switching versions
+Admin-specific styles remain under:
 
-Edit:
+`components/10-admin-layout.css`
+`components/11-admin-components.css`
 
-`app/Views/layouts/style-config.ini`
+plus the existing admin operation modules referenced directly by the admin layout.
 
-and change:
-
-`active_version = "v1"`
-
-to:
-
-`active_version = "v2"`
-
-The public header loads CSS through `style-engine.php`. Old phase and duplicate stylesheets are no longer selected by the public style loader.
+Do not add duplicate root-level assets or a second style engine. New public visual versions should use the existing `config/design/active.ini` + `includes/StyleEngine.php` architecture.
