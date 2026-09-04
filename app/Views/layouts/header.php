@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/style-engine.php';
+
 /** @var array $seo */
 $siteName = setting('general', 'site_name', 'Big Kahuna Car Hire');
 $flashes = get_flashes();
@@ -39,7 +41,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-<?= style_links() ?>
+<?= style_engine_links() ?>
 
 <?php $gaId = setting('seo', 'google_analytics_id'); if ($gaId): ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=<?= e($gaId) ?>"></script>
