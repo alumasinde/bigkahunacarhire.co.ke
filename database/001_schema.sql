@@ -260,8 +260,8 @@ WHERE r.name = 'staff' AND p.name IN ('cars.view','bookings.view','bookings.mana
 
 -- Default super admin user (password: KahunaAdmin#2026 — CHANGE AFTER FIRST LOGIN)
 INSERT INTO users (first_name, last_name, email, phone, password_hash, role_id, status)
-SELECT 'Big', 'Kahuna', 'admin@bigkahunacarhire.co.ke', '0700000000',
-       '$2y$10$0hNfeIgS9QFZpnZqrVgypeMesImM0kRZir77w0lN2Zx7lgRCvjjie', -- bcrypt hash of: KahunaAdmin#2026
+SELECT 'Big', 'Kahuna', 'admin@bigkahunacarhire.co.ke', '0792717461',
+       '$2y$10$0hNfeIgS9QFZpnZqrVgypeMesImM0kRZir77w0lN2Zx7lgRCvjjie', 
        r.id, 'active'
 FROM roles r WHERE r.name = 'super_admin';
 
@@ -275,17 +275,19 @@ INSERT INTO car_categories (name, slug, description) VALUES
 -- Settings — general
 INSERT INTO settings (setting_group, setting_key, setting_value) VALUES
 ('general', 'site_name', 'Big Kahuna Car Hire'),
-('general', 'tagline', 'Ride the Wave. Drive the Kahuna.'),
-('general', 'phone_primary', '+254 700 000 000'),
-('general', 'phone_secondary', '+254 733 000 000'),
+('general', 'tagline', 'Drive Kenya. Ride the Kahuna.'),
+('general', 'phone_primary', '+254 792 717 461'),
+('general', 'phone_secondary', ''),
 ('general', 'email', 'info@bigkahunacarhire.co.ke'),
-('general', 'address', 'Mombasa Road, Nairobi, Kenya'),
+('general', 'address', 'Nairobi, Kenya'),
 ('general', 'working_hours', 'Mon - Sun: 6:00 AM - 10:00 PM'),
 ('general', 'currency', 'KES'),
 ('general', 'facebook_url', 'https://facebook.com/bigkahunacarhire'),
 ('general', 'instagram_url', 'https://instagram.com/bigkahunacarhire'),
 ('general', 'twitter_url', 'https://x.com/bigkahunacarhire'),
-('general', 'whatsapp_number', '254700000000'),
+('general', 'whatsapp_number', '254792717461'),
+('general', 'linkedin_url', ''),
+('general', 'youtube_url', ''),
 ('general', 'google_maps_embed', '');
 
 -- Settings — SEO (per-page titles/descriptions + sitewide defaults)
@@ -318,7 +320,7 @@ INSERT INTO settings (setting_group, setting_key, setting_value) VALUES
 ('notifications', 'email_enabled', '1'),
 ('notifications', 'sms_enabled', '1'),
 ('notifications', 'admin_notification_email', 'admin@bigkahunacarhire.co.ke'),
-('notifications', 'admin_notification_phone', '254700000000');
+('notifications', 'admin_notification_phone', '254792717461');
 
 -- Settings — Legal (Terms & Conditions + damage disclaimer, editable in admin)
 INSERT INTO settings (setting_group, setting_key, setting_value) VALUES
@@ -340,11 +342,9 @@ INSERT INTO settings (setting_group, setting_key, setting_value) VALUES
 ('mpesa', 'manual_enabled', '0');
 
 -- Sample cars
-INSERT INTO cars (category_id, name, slug, brand, model, year, transmission, fuel_type, seats, doors, price_per_day, plate_number, location, description, image_path, status, featured, meta_title, meta_description)
-VALUES
-(1, 'Toyota Vitz', 'toyota-vitz', 'Toyota', 'Vitz', 2019, 'automatic', 'petrol', 4, 4, 3500.00, 'KDA 101A', 'Nairobi', 'Compact and fuel-efficient, perfect for city driving and errands.', '/assets/images/cars/vitz.jpg', 'available', 1, 'Hire a Toyota Vitz in Nairobi | Big Kahuna Car Hire', 'Affordable Toyota Vitz self-drive hire in Nairobi from KES 3,500/day.'),
-(2, 'Toyota Land Cruiser Prado', 'toyota-prado', 'Toyota', 'Prado', 2021, 'automatic', 'diesel', 7, 5, 12000.00, 'KDB 202B', 'Nairobi', 'Rugged and comfortable 4x4, ideal for safaris and family trips.', '/assets/images/cars/prado.jpg', 'available', 1, 'Toyota Prado Hire Kenya | Big Kahuna Car Hire', 'Hire a Toyota Land Cruiser Prado for safaris and off-road travel in Kenya.'),
-(3, 'Mercedes-Benz E-Class', 'mercedes-e-class', 'Mercedes-Benz', 'E-Class', 2020, 'automatic', 'petrol', 5, 4, 18000.00, 'KDC 303C', 'Nairobi', 'Premium sedan for executive travel, weddings and events.', '/assets/images/cars/e-class.jpg', 'available', 1, 'Mercedes E-Class Hire Nairobi | Big Kahuna Car Hire', 'Book a Mercedes-Benz E-Class with chauffeur for executive travel in Nairobi.'),
-(4, 'Toyota Hiace', 'toyota-hiace', 'Toyota', 'Hiace', 2018, 'manual', 'diesel', 14, 4, 9000.00, 'KDD 404D', 'Nairobi', 'Spacious minibus for group travel, tours and airport transfers.', '/assets/images/cars/hiace.jpg', 'available', 0, 'Toyota Hiace Van Hire Kenya | Big Kahuna Car Hire', 'Hire a 14-seater Toyota Hiace for group travel and tours in Kenya.'),
-(1, 'Nissan Note', 'nissan-note', 'Nissan', 'Note', 2020, 'automatic', 'petrol', 4, 4, 3800.00, 'KDE 505E', 'Mombasa', 'Reliable hatchback with great fuel economy for daily use.', '/assets/images/cars/note.jpg', 'available', 0, 'Nissan Note Hire Mombasa | Big Kahuna Car Hire', 'Affordable Nissan Note self-drive hire available in Mombasa.'),
-(2, 'Subaru Forester', 'subaru-forester', 'Subaru', 'Forester', 2019, 'automatic', 'petrol', 5, 5, 8000.00, 'KDF 606F', 'Nairobi', 'All-wheel-drive SUV, confident on tarmac and rough roads alike.', '/assets/images/cars/forester.jpg', 'available', 1, 'Subaru Forester Hire Nairobi | Big Kahuna Car Hire', 'Hire a Subaru Forester SUV for city and upcountry travel in Kenya.');
+INSERT INTO `cars` (`category_id`, `name`, `slug`, `brand`, `model`, `year`, `transmission`, `fuel_type`, `seats`, `doors`, `price_per_day`,`plate_number`, `location`, `description`, `image_path`, `status`, `featured`, `meta_title`, `meta_description`) VALUES
+(2, 'Toyota Land Cruiser Prado', 'toyota-land-cruiser-prado', 'Toyota', 'Prado', NULL, 'automatic', 'diesel', 7, 5, 14000.00, '', 'Nairobi', 'Rugged and comfortable 4x4, ideal for safaris and family trips.', '/assets/images/cars/car_6a7dc5b65bd9f6.71559213.jpg', 'booked', 1, 'Toyota Prado Hire Kenya | Big Kahuna Car Hire', 'Hire a Toyota Land Cruiser Prado for safaris and off-road travel in Kenya.'),
+(2, 'Toyota Harrier', 'toyota-harrier', 'Toyota', '60-Series Harrier', NULL, 'automatic', 'petrol', 5, 4, 11000.00, '', 'Nairobi', 'Experience comfort and style with the Toyota Harrier. This premium 5-seater SUV offers a smooth automatic CVT transmission, spacious interior and refined driving experience, making it ideal for business travel, family trips, airport transfers and city excursions.', '/assets/images/cars/car_6a7dc731b38729.06466941.jpg', 'available', 0, 'Toyota Harrier Hire Kenya | Big Kahuna Car Hire', 'Toyota Harrier car hire in Kenya with a luxury 5-seater SUV, automatic transmission, comfort and style for business and family travel.'),
+(4, 'White Toyota Coaster', 'white-toyota-coaster', 'Toyota', 'Toyota', '2020', 'manual', 'diesel', 25, 3, 19000.00, '', 'Nairobi', 'The Toyota Coaster is a spacious and reliable 25-seater minibus, ideal for group tours, corporate travel, events, airport transfers and family trips. \r\n\r\nIt offers comfortable seating, ample passenger space and dependable performance for both city and long-distance travel.', '/assets/images/cars/car_6a7dca496a6c50.65309422.jpg', 'available', 0, 'White Toyota Coaster | Big Kahuna Car Hire', 'Toyota Coaster car hire in Kenya with a spacious 25-seater diesel minibus, ideal for group travel, tours, events and corporate transport.'),
+(2, 'Nissan X- Trail', 'nissan-x-trail', 'Nissan', 'X-Trail T32', NULL, 'automatic', 'petrol', 5, 5, 11000.00, '', 'Nairobi', 'The Nissan X-Trail is a comfortable and practical 5-seater SUV, ideal for family trips, business travel, airport transfers and city driving. \r\nIt offers a spacious interior, smooth automatic CVT transmission and a comfortable driving experience.', '/assets/images/cars/car_6a7dc9534d8b20.11147918.jpg', 'booked', 1, 'Nissan X-Trail Hire Nairobi | Big Kahuna Car Hire', 'Hire a Nissan X-Trail SUV for city and upcountry travel in Kenya.'),
+(3, 'Toyota Land Cruiser V8 (LC200)', 'toyota-land-cruiser-v8-lc200', 'Toyota', 'Toyota Land Cruiser V8', NULL, 'automatic', 'diesel', 8, 5, 25000.00, '', 'Nairobi', 'The Toyota Land Cruiser V8 is a powerful and luxurious 8-seater SUV built for comfort and demanding road conditions. \r\n\r\nWith its 4.5L V8 turbo-diesel engine, automatic transmission and 4WD capability, it is ideal for safaris, long-distance journeys, corporate travel and family trips.', '/assets/images/cars/car_6a7dcbcc225145.86881118.jpg', 'available', 0, 'Toyota Land Cruiser V8 | BigKahuna Car Hire', 'Toyota Land Cruiser V8 car hire in Kenya with an 8-seater luxury 4WD SUV, powerful diesel engine and automatic transmission for comfortable travel.');
