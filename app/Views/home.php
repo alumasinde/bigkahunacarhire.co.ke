@@ -40,7 +40,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
           <div class="form-group">
             <label for="qs-category"><?= e($w('search_category_label')) ?></label>
             <select id="qs-category" name="category">
-              <option value="">Any category</option>
+              <option value=""><?= e($w('search_any_category_label')) ?></option>
               <?php foreach ($categories as $cat): ?>
                 <option value="<?= e($cat['slug']) ?>"><?= e($cat['name']) ?></option>
               <?php endforeach; ?>
@@ -49,15 +49,16 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
           <div class="form-group">
             <label for="qs-transmission"><?= e($w('search_transmission_label')) ?></label>
             <select id="qs-transmission" name="transmission">
-              <option value="">Any transmission</option>
-              <option value="automatic">Automatic</option>
-              <option value="manual">Manual</option>
+              <option value=""><?= e($w('search_any_transmission_label')) ?></option>
+              <?php foreach ($transmissionOptions as $transmission): ?>
+                <option value="<?= e($transmission) ?>"><?= e(ucfirst($transmission)) ?></option>
+              <?php endforeach; ?>
             </select>
           </div>
           <div class="form-group">
             <label for="qs-seats"><?= e($w('search_seats_label')) ?></label>
             <select id="qs-seats" name="seats">
-              <option value="">Any number</option>
+              <option value=""><?= e($w('search_any_seats_label')) ?></option>
               <?php foreach ($seatOptions as $seats): ?>
                 <option value="<?= (int) $seats ?>"><?= (int) $seats ?>+</option>
               <?php endforeach; ?>
@@ -66,7 +67,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
           <div class="form-group">
             <label for="qs-price"><?= e($w('search_price_label')) ?></label>
             <select id="qs-price" name="max_price">
-              <option value="">Any price</option>
+              <option value=""><?= e($w('search_any_price_label')) ?></option>
               <?php foreach ($priceOptions as $price): ?>
                 <option value="<?= e((string) $price) ?>"><?= money($price) ?></option>
               <?php endforeach; ?>
@@ -80,13 +81,13 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
   </div>
 </section>
 
-<section class="bk-trust-strip" aria-label="Why book with Big Kahuna">
+<section class="bk-trust-strip" aria-label="<?= e(setting('general', 'site_name')) ?>">
   <div class="container">
     <div class="bk-trust-grid">
       <div class="bk-trust-item"><span class="bk-trust-icon"><i class="fa-solid fa-shield-halved"></i></span><div><strong><?= e($w('trust_1_title')) ?></strong><span><?= e($w('trust_1_text')) ?></span></div></div>
       <div class="bk-trust-item"><span class="bk-trust-icon"><i class="fa-solid fa-tag"></i></span><div><strong><?= e($w('trust_2_title')) ?></strong><span><?= e($w('trust_2_text')) ?></span></div></div>
       <div class="bk-trust-item"><span class="bk-trust-icon"><i class="fa-solid fa-location-dot"></i></span><div><strong><?= e($w('trust_3_title')) ?></strong><span><?= e($w('trust_3_text')) ?></span></div></div>
-      <div class="bk-trust-item"><span class="bk-trust-icon"><i class="fa-solid fa-headset"></i></span><div><strong><?= e($w('hero_proof_3')) ?></strong><span>Help when you need it</span></div></div>
+      <div class="bk-trust-item"><span class="bk-trust-icon"><i class="fa-solid fa-headset"></i></span><div><strong><?= e($w('trust_4_title')) ?></strong><span><?= e($w('trust_4_text')) ?></span></div></div>
     </div>
   </div>
 </section>
@@ -103,7 +104,7 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
         <a href="<?= base_url('fleet?category=' . e($cat['slug'])) ?>" class="bk-category-card">
           <div class="bk-category-icon"><i class="fa-solid <?= $icons[$cat['slug']] ?? 'fa-car' ?>"></i></div>
           <h3><?= e($cat['name']) ?></h3>
-          <?php if (!empty($cat['description'])): ?><p><?= e($cat['description']) ?></p><?php else: ?><p>Browse available <?= e(strtolower($cat['name'])) ?> vehicles.</p><?php endif; ?>
+          <?php if (!empty($cat['description'])): ?><p><?= e($cat['description']) ?></p><?php else: ?><p><?= e(sprintf('Browse available %s vehicles.', strtolower($cat['name']))) ?></p><?php endif; ?>
         </a>
       <?php endforeach; ?>
     </div>
