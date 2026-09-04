@@ -187,3 +187,49 @@ textarea { resize: vertical; min-height: 110px; }
    --------------------------------------------------------- */
 .empty-state { text-align: center; padding: 60px 20px; color: var(--color-text-faint); }
 .empty-state i { font-size: 2.4rem; margin-bottom: var(--space-4); color: var(--color-sand-dark); }
+
+
+/* =========================================================
+   V1 interaction polish — consistent controls and clearer states
+   ========================================================= */
+.btn {
+  min-height: 48px;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: -.01em;
+}
+.btn-sm {
+  min-height: 42px;
+  border-radius: 9px;
+}
+.btn:active {
+  transform: translateY(0) scale(.985);
+}
+.btn-primary {
+  box-shadow: 0 8px 20px rgba(184,132,22,.16);
+}
+.btn-primary:hover {
+  box-shadow: 0 14px 30px rgba(184,132,22,.24);
+}
+input, select, textarea {
+  border-width: 1px;
+  min-height: 48px;
+  box-shadow: 0 1px 0 rgba(17,21,22,.02);
+}
+textarea {
+  min-height: 118px;
+}
+input:hover, select:hover, textarea:hover {
+  border-color: var(--border-strong);
+}
+input:focus, select:focus, textarea:focus {
+  box-shadow: 0 0 0 4px rgba(217,165,46,.13);
+}
+.form-group {
+  gap: 7px;
+}
+label {
+  color: var(--text-primary);
+  font-size: .74rem;
+  letter-spacing: .08em;
+}

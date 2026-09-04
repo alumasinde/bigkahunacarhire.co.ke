@@ -2,6 +2,7 @@
 
 <?php
 $heroCar = !empty($featuredCars) ? $featuredCars[0] : null;
+$featuredCount = count($featuredCars);
 $heroImage = $heroCar && !empty($heroCar['image_path']) ? base_url($heroCar['image_path']) : null;
 $icons = ['economy' => 'fa-car-side', 'suv' => 'fa-truck-monster', 'luxury' => 'fa-gem', 'van-minibus' => 'fa-van-shuttle'];
 $w = static fn(string $key, string $default = ''): string => setting('website', $key, $default);
@@ -111,14 +112,14 @@ $w = static fn(string $key, string $default = ''): string => setting('website', 
   </div>
 </section>
 
-<section class="bk-section" style="background:var(--bk-cream)">
+<section class="bk-section bk-featured-section" style="background:var(--bk-cream)">
   <div class="container">
-    <div class="bk-section-head">
+    <div class="bk-section-head bk-featured-head">
       <span class="section-eyebrow"><?= e($w('featured_eyebrow')) ?></span>
       <h2><?= e($w('featured_title')) ?></h2>
       <p><?= e($w('featured_text')) ?></p>
     </div>
-    <div class="bk-fleet-grid">
+    <div class="bk-fleet-grid bk-fleet-grid--<?= $featuredCount >= 3 ? 'many' : ($featuredCount === 2 ? 'pair' : 'single') ?>">
       <?php foreach ($featuredCars as $car): ?>
         <article class="bk-car-card">
           <a href="<?= base_url('fleet/' . e($car['slug'])) ?>" class="bk-car-media">

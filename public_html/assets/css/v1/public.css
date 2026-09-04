@@ -1388,3 +1388,126 @@ body:not(.admin-body) iframe[src*="checkout.paystack.com"]{
 .legal-document__contact p{margin:0 0 12px;color:var(--color-text-soft)}
 .legal-document__contact a,.legal-document__contact span{display:block;margin-top:6px;color:var(--color-text)}
 @media (max-width:720px){.legal-page{padding:28px 0}.legal-document{padding:20px}.legal-document__content{font-size:.92rem;line-height:1.75}}
+
+
+/* =========================================================
+   V1 UI/UX polish — homepage balance, cards and section rhythm
+   ========================================================= */
+body:not(.admin-body) .bk-section {
+  padding-block: clamp(58px, 7vw, 96px);
+}
+body:not(.admin-body) .bk-section-head {
+  margin-bottom: clamp(28px, 4vw, 46px);
+}
+body:not(.admin-body) .bk-section-head h2 {
+  font-size: clamp(1.85rem, 3vw, 2.75rem);
+  letter-spacing: -.035em;
+}
+body:not(.admin-body) .bk-section-head p {
+  max-width: 660px;
+  font-size: .98rem;
+}
+body:not(.admin-body) .bk-hero {
+  min-height: 650px;
+  padding: 76px 0 112px;
+}
+body:not(.admin-body) .bk-hero-grid {
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
+}
+body:not(.admin-body) .bk-hero-search {
+  box-shadow: 0 24px 70px rgba(0,0,0,.2);
+}
+body:not(.admin-body) .bk-search-form {
+  gap: 13px;
+}
+body:not(.admin-body) .bk-search-submit {
+  min-height: 54px;
+  margin-top: 3px;
+}
+body:not(.admin-body) .bk-featured-section {
+  overflow: hidden;
+}
+body:not(.admin-body) .bk-featured-head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+body:not(.admin-body) .bk-fleet-grid--single {
+  grid-template-columns: minmax(0, 620px);
+  justify-content: center;
+}
+body:not(.admin-body) .bk-fleet-grid--pair {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 940px;
+  margin-inline: auto;
+}
+body:not(.admin-body) .bk-fleet-grid--pair .bk-car-card {
+  min-height: 100%;
+}
+body:not(.admin-body) .bk-fleet-grid--pair .bk-car-body {
+  padding: 24px;
+}
+body:not(.admin-body) .bk-fleet-grid--pair .bk-car-media {
+  aspect-ratio: 16 / 9;
+}
+body:not(.admin-body) .bk-car-card {
+  border-color: rgba(17,21,22,.1);
+}
+body:not(.admin-body) .bk-car-card:hover {
+  transform: translateY(-5px);
+}
+body:not(.admin-body) .bk-car-body h3 {
+  line-height: 1.22;
+}
+body:not(.admin-body) .bk-car-specs span {
+  white-space: nowrap;
+}
+body:not(.admin-body) .bk-car-price strong {
+  font-size: 1.28rem;
+  letter-spacing: -.02em;
+}
+body:not(.admin-body) .bk-car-price span {
+  display: inline-block;
+  margin-left: 3px;
+}
+body:not(.admin-body) .bk-car-footer .btn {
+  min-width: 112px;
+  justify-content: center;
+}
+@media (max-width: 980px) {
+  body:not(.admin-body) .bk-hero {
+    min-height: auto;
+    padding-block: 68px 82px;
+  }
+  body:not(.admin-body) .bk-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  body:not(.admin-body) .bk-hero-copy {
+    max-width: 760px;
+  }
+  body:not(.admin-body) .bk-hero-search {
+    max-width: 720px;
+    width: 100%;
+  }
+  body:not(.admin-body) .bk-fleet-grid--pair,
+  body:not(.admin-body) .bk-fleet-grid--many {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  body:not(.admin-body) .bk-section {
+    padding-block: 48px;
+  }
+  body:not(.admin-body) .bk-hero h1 {
+    font-size: clamp(3rem, 15vw, 4.6rem);
+  }
+  body:not(.admin-body) .bk-fleet-grid,
+  body:not(.admin-body) .bk-fleet-grid--pair,
+  body:not(.admin-body) .bk-fleet-grid--many,
+  body:not(.admin-body) .bk-fleet-grid--single {
+    grid-template-columns: 1fr;
+  }
+  body:not(.admin-body) .bk-car-footer {
+    align-items: center;
+  }
+}
