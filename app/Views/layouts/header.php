@@ -78,10 +78,6 @@ $businessSchema = [
     'streetAddress'=>setting('general','address'),
     'addressCountry'=>setting('general','address_country','KE')
   ],
-  'areaServed'=>[
-    ['@type'=>'City','name'=>'Nairobi','@id'=>'https://www.wikidata.org/wiki/Q3870'],
-    ['@type'=>'City','name'=>'Mombasa','@id'=>'https://www.wikidata.org/wiki/Q225641']
-  ],
   'priceRange'=>setting('general','price_range'),
   'openingHours'=>setting('general','opening_hours'),
   'sameAs'=>array_values(array_filter([
