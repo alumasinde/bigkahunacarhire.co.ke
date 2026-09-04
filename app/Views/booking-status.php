@@ -1,9 +1,10 @@
 <?php view('layouts/header',['seo'=>$seo]); ?>
+<?php $w = static fn(string $key, string $default = ''): string => setting('website', $key, $default); ?>
 <main class="container booking-status-page">
   <div class="booking-status-hero">
     <span class="section-eyebrow">BOOKING TRACKER</span>
     <h1><?= e($booking['booking_ref']) ?></h1>
-    <p>Everything you need for your Big Kahuna rental in one place.</p>
+    <p><?= e($w('booking_status_tagline')) ?></p>
   </div>
   <div class="booking-status-grid">
     <section class="card">
@@ -28,6 +29,6 @@
       <?php endif; ?>
     </section>
   </div>
-  <div class="card booking-status-help"><strong>Need help?</strong><span>Reply to the Big Kahuna WhatsApp message or contact our team with booking reference <strong><?= e($booking['booking_ref']) ?></strong>.</span></div>
+  <div class="card booking-status-help"><strong><?= e($w('booking_need_help_title')) ?></strong><span><?= e($w('booking_need_help_text')) ?> <strong><?= e($booking['booking_ref']) ?></strong>.</span></div>
 </main>
 <?php view('layouts/footer'); ?>
