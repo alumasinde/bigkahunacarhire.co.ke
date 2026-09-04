@@ -237,6 +237,42 @@ hero, cards, footer, admin layout — lives in its own file under
 spacing value in `00-tokens.css` propagates everywhere automatically.
 There are no hardcoded hex codes or pixel values left inline in any view.
 
+## Versioned design system
+
+Public styles use a small versioned design engine modeled on the Law Firm project:
+
+```
+config/design/active.ini
+        │
+        ▼
+includes/StyleEngine.php
+        │
+        ├── CSS variables from the active design
+        └── public_html/assets/css/v1|v2/manifest.php
+                     │
+                     ▼
+              versioned CSS files
+```
+
+The active version is controlled in:
+
+```ini
+[application]
+style_version = "v2"
+```
+
+Switching to `v1` provides a rollback path without editing views. `v2` is the cleaned public stylesheet architecture and consolidates the former numbered phase styles into focused modules:
+
+- `base.css`
+- `layout.css`
+- `components.css`
+- `public.css`
+- `booking.css`
+- `customer.css`
+- `seo.css`
+
+Brand colors, typography, surfaces, spacing, borders and layout dimensions are configured in `active.ini` and exposed as CSS custom properties by the engine.
+
 ## Security notes
 
 - Passwords hashed with `password_hash()` (bcrypt).
