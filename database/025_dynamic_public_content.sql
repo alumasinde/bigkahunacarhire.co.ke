@@ -52,6 +52,8 @@ INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','featured_badge','Featured'),
 ('website','featured_view_label','View Car'),
 ('website','featured_all_label','View Full Fleet'),
+('website','spec_seats_label','seats'),
+('website','location_car_hire_suffix','Car Hire'),
 ('website','price_from_label','From'),
 ('website','price_day_label','/ day'),
 
@@ -100,6 +102,12 @@ INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','reviews_eyebrow','REAL CUSTOMER FEEDBACK'),
 ('website','reviews_title','What our customers say'),
 ('website','reviews_text','Recent reviews from customers who have experienced our service.'),
+('website','reviews_out_of_label','out of 5'),
+('website','reviews_published_label','published review'),
+('website','reviews_across_sources_label','Across connected review sources'),
+('website','reviews_google_button','Review us on Google'),
+('website','reviews_tripadvisor_button','Review us on Tripadvisor'),
+('website','reviews_read_all_button','Read all reviews'),
 
 ('website','cta_title','Ready to start your journey?'),
 ('website','cta_text','Choose your vehicle and start your booking journey in minutes.'),
