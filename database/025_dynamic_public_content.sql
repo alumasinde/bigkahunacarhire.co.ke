@@ -116,6 +116,11 @@ INSERT IGNORE INTO settings (setting_group, setting_key, setting_value) VALUES
 ('website','cta_text','Choose your vehicle and start your booking journey in minutes.'),
 ('website','cta_button_label','Book Your Car'),
 
+('website','fleet_title','Find your next ride'),
+('website','fleet_intro','Browse our live fleet, compare daily rates and choose a vehicle that fits your trip.'),
+('website','fleet_filter_button','Filter Fleet'),
+('website','fleet_empty_message','No cars match those filters right now. Try widening your search.'),
+('website','fleet_clear_filters_label','Clear Filters'),
 ('website','about_page_title','About Us'),
 ('website','about_intro_1','We are a Kenyan car rental company focused on making vehicle hire simple, dependable and convenient. Whether you need a compact hatchback for the city, a rugged 4x4 for a safari, or a chauffeur-driven sedan for an event, we help match you with the right ride.'),
 ('website','about_intro_2','Every vehicle in our fleet is prepared for handover and supported by a team ready to help before, during and after your journey.'),
