@@ -1,11 +1,13 @@
 <?php
+declare(strict_types=1);
 
+/*
+ * Active version stylesheet manifest.
+ * Keep this list small and ordered. Shared public presentation is consolidated
+ * into these three version-owned files.
+ */
 return [
-    'base.css',
-    'layout.css',
-    'components.css',
-    'public.css',
-    'booking.css',
-    'customer.css',
-    'seo.css',
+    '01-public.css',
+    '02-components.css',
+    '03-booking.css',
 ];

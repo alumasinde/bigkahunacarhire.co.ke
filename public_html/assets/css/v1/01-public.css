@@ -342,7 +342,7 @@ body:not(.admin-body) {
   --bk-gold-light: #f2cf75;
   --bk-ink: var(--bk-black);
   --bk-ink-2: var(--bk-black-soft);
-  --bk-cream: var(--bk-cream);
+  --bk-cream: var(--surface-page);
   --bk-line: rgba(17,21,22,.09);
   --bk-card: #fff;
 }
