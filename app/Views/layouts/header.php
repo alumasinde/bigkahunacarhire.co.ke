@@ -2,6 +2,7 @@
 /** @var array $seo */
 $siteName = setting('general', 'site_name', 'Big Kahuna Car Hire');
 $flashes = get_flashes();
+$w = static fn(string $key, string $default = ''): string => setting('website', $key, $default);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@ $businessSchema = [
   'address'=>[
     '@type'=>'PostalAddress',
     'streetAddress'=>setting('general','address'),
-    'addressCountry'=>'KE'
+    'addressCountry'=>setting('general','address_country','KE')
   ],
   'areaServed'=>[
     ['@type'=>'City','name'=>'Nairobi','@id'=>'https://www.wikidata.org/wiki/Q3870'],
@@ -137,17 +138,17 @@ echo json_encode($businessSchema, JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)
   <div class="container">
     <a href="<?= base_url('/') ?>" class="brand">
       <span class="brand-mark"><i class="fa-solid fa-water"></i></span>
-      <span class="brand-text">BIG <span>KAHUNA</span> CAR HIRE</span>
+      <span class="brand-text"><?= e($siteName) ?></span>
     </a>
     <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
     <nav class="main-nav">
       <ul>
-        <li><a href="<?= base_url('/') ?>" class="<?= current_path() === '' ? 'active' : '' ?>">Home</a></li>
-        <li><a href="<?= base_url('fleet') ?>" class="<?= str_starts_with(current_path(), 'fleet') ? 'active' : '' ?>">Fleet</a></li>
-        <li><a href="<?= base_url('about') ?>" class="<?= current_path() === 'about' ? 'active' : '' ?>">About</a></li>
-        <li><a href="<?= base_url('contact') ?>" class="<?= current_path() === 'contact' ? 'active' : '' ?>">Contact</a></li>
-        <li><a href="<?= base_url(CustomerAuth::check() ? 'account/dashboard' : 'account/login') ?>" class="<?= str_starts_with(current_path(), 'account') ? 'active' : '' ?>"><i class="fa-solid fa-user"></i> <?= CustomerAuth::check() ? 'My Bookings' : 'My Account' ?></a></li>
-        <li><a href="<?= base_url('book') ?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-calendar-check"></i> Book Now</a></li>
+        <li><a href="<?= base_url('/') ?>" class="<?= current_path() === '' ? 'active' : '' ?>"><?= e($w('nav_home_label', 'Home')) ?></a></li>
+        <li><a href="<?= base_url('fleet') ?>" class="<?= str_starts_with(current_path(), 'fleet') ? 'active' : '' ?>"><?= e($w('nav_fleet_label', 'Fleet')) ?></a></li>
+        <li><a href="<?= base_url('about') ?>" class="<?= current_path() === 'about' ? 'active' : '' ?>"><?= e($w('nav_about_label', 'About')) ?></a></li>
+        <li><a href="<?= base_url('contact') ?>" class="<?= current_path() === 'contact' ? 'active' : '' ?>"><?= e($w('nav_contact_label', 'Contact')) ?></a></li>
+        <li><a href="<?= base_url(CustomerAuth::check() ? 'account/dashboard' : 'account/login') ?>" class="<?= str_starts_with(current_path(), 'account') ? 'active' : '' ?>"><i class="fa-solid fa-user"></i> <?= e(CustomerAuth::check() ? $w('nav_bookings_label', 'My Bookings') : $w('nav_account_label', 'My Account')) ?></a></li>
+        <li><a href="<?= base_url('book') ?>" class="btn btn-primary btn-sm"><i class="fa-solid fa-calendar-check"></i> <?= e($w('nav_book_now_label', 'Book Now')) ?></a></li>
       </ul>
     </nav>
   </div>
