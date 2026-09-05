@@ -4,14 +4,33 @@ declare(strict_types=1);
 /**
  * Versioned public style loader.
  *
- * The active design lives in config/design/active.ini. Switching
- * application.style_version from v1 to v2 changes the complete public
- * stylesheet manifest without touching views.
+ * Public styles have two layers:
+ * 1. Shared foundation: reset, tokens, controls, forms, header, hero,
+ *    sections, cards, footer and utilities.
+ * 2. Active version: V1 or V2 presentation overrides selected from
+ *    config/design/active.ini.
+ *
+ * Keeping the foundation outside V1/V2 prevents both versions from having
+ * to duplicate structural CSS while still allowing either version to be
+ * switched from configuration.
  */
 final class StyleEngine
 {
     private array $config;
     private string $configPath;
+
+    private const FOUNDATION_STYLES = [
+        'components/00-tokens.css',
+        'components/01-base.css',
+        'components/02-buttons.css',
+        'components/03-forms.css',
+        'components/04-header.css',
+        'components/05-hero.css',
+        'components/06-sections.css',
+        'components/07-cards.css',
+        'components/08-footer.css',
+        'components/09-utilities.css',
+    ];
 
     public function __construct(?string $configPath = null)
     {
@@ -30,7 +49,12 @@ final class StyleEngine
         $version = $this->version();
         $output = $this->themeMeta() . $this->fontStyles() . $this->variables();
 
-        foreach ($this->styles($version) as $style) {
+        foreach ($this->foundationStyles() as $style) {
+            $href = asset('css/' . $style);
+            $output .= '<link rel="stylesheet" href="' . e($href) . '">';
+        }
+
+        foreach ($this->versionStyles($version) as $style) {
             $href = asset('css/' . $version . '/' . $style);
             $output .= '<link rel="stylesheet" href="' . e($href) . '">';
         }
@@ -96,7 +120,17 @@ final class StyleEngine
     /**
      * @return list<string>
      */
-    private function styles(string $version): array
+    private function foundationStyles(): array
+    {
+        return array_values(array_filter(self::FOUNDATION_STYLES, function (string $style): bool {
+            return is_file(APP_ROOT . '/public_html/assets/css/' . $style);
+        }));
+    }
+
+    /**
+     * @return list<string>
+     */
+    private function versionStyles(string $version): array
     {
         $manifest = APP_ROOT . '/public_html/assets/css/' . $version . '/manifest.php';
 
@@ -110,12 +144,10 @@ final class StyleEngine
             return [];
         }
 
-        $styles = array_values(array_filter($styles, static function (mixed $style): bool {
+        return array_values(array_filter($styles, static function (mixed $style): bool {
             return is_string($style)
                 && preg_match('/^[A-Za-z0-9][A-Za-z0-9._-]*\.css$/', $style) === 1;
         }));
-
-        return $styles;
     }
 }
 
